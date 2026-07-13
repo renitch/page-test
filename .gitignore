@@ -1,0 +1,8 @@
+# Source design file (156 MB — exceeds GitHub's 100 MB file limit)
+*.psd
+
+# Extraction / verification workspace (renders, diffs, helper scripts)
+_extract/
+
+# Local tooling (portable gh CLI)
+_tools/

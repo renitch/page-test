@@ -1,0 +1,336 @@
+/* ============================================================
+   ABMA Homepage — pixel replica of ABMA_Homepage.psd (1920×4825)
+   Artwork (photos, shapes, icons, display headlines set in
+   Europa Grotesk SH) lives in the background strips; all body
+   text is real HTML positioned at the PSD coordinates.
+   ============================================================ */
+
+:root {
+  --navy: #1E3160;        /* primary navy text            */
+  --navy-dark: #1D2140;   /* utility nav / subscribe bar  */
+  --yellow: #FAAC1B;      /* brand yellow                 */
+  --lavender: #D2D8E8;    /* pale blue body text          */
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: #10142B; }
+
+body {
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.page {
+  position: relative;
+  width: 1920px;
+  height: 4825px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--yellow);
+}
+
+/* ---- background artwork strips ---- */
+.bg { position: absolute; left: 0; display: block; width: 1920px; }
+.bg-0 { top: 0; }
+.bg-1 { top: 800px; }
+.bg-2 { top: 1600px; }
+.bg-3 { top: 2400px; }
+.bg-4 { top: 3200px; }
+.bg-5 { top: 4000px; }
+
+/* ---- shared helpers ---- */
+.t { position: absolute; white-space: nowrap; }
+
+.hs { position: absolute; display: block; }          /* link hotspot     */
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.caps { text-transform: uppercase; }
+.ls40 { letter-spacing: -0.04em; }
+
+/* ============================== HEADER ============================== */
+
+.logo-link { left: 415px; top: 22px; width: 149px; height: 68px; }
+
+.donate {
+  left: 1118px; top: 17px;
+  font-size: 14px; line-height: 18.97px; font-weight: 700;
+  letter-spacing: -0.01em; text-transform: uppercase;
+  color: var(--navy-dark); text-decoration: none;
+}
+.contact {
+  left: 1195px; top: 17.9px;
+  font-size: 13px; line-height: 18.97px; font-weight: 400;
+  color: var(--navy-dark); text-decoration: none;
+}
+
+.nav-link {
+  top: 58px;
+  font-size: 14px; line-height: 18.97px; font-weight: 700;
+  letter-spacing: -0.01em; text-transform: uppercase;
+  color: var(--navy); text-decoration: none;
+}
+.nav-about     { left: 591px;  }
+.nav-programs  { left: 719px;  }
+.nav-news      { left: 832px;  }
+.nav-corporate { left: 975px;  }
+.nav-resources { left: 1167px; }
+
+.nav-sep {
+  top: 56.6px;
+  font-size: 12.65px; line-height: 18.97px; font-weight: 600;
+  color: var(--navy);
+}
+.sep-1 { left: 698px;  }
+.sep-2 { left: 812px;  }
+.sep-3 { left: 955px;  }
+.sep-4 { left: 1147px; }
+
+.search { position: absolute; left: 1264px; top: 33px; width: 242px; height: 44px; }
+.search-input {
+  position: absolute; left: 35px; top: 12px;
+  width: 190px; height: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px; line-height: 20px;
+  color: var(--navy);
+  background: transparent; border: 0; outline: 0;
+}
+.search-input::placeholder { color: var(--navy); opacity: 1; }
+
+/* ---- About ABMA dropdown (open on hover) ---- */
+.nav-about-wrap { position: absolute; left: 591px; top: 40px; width: 94px; height: 40px; }
+.nav-about-wrap .nav-about { top: 16.4px; left: 0; }
+
+.dropdown {
+  position: absolute; left: -65px; top: 61px;   /* panel at page (526,101) */
+  width: 225px; height: 272px;
+  background: #F7AB1B;
+  box-shadow: 0 26px 60px rgba(10, 16, 40, 0.5);
+  visibility: hidden; opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.nav-about-wrap:hover .dropdown,
+.nav-about-wrap:focus-within .dropdown { visibility: visible; opacity: 1; }
+
+.dd-notch {
+  position: absolute; left: 78px; top: -14px;
+  width: 0; height: 0;
+  border-left: 17.5px solid transparent;
+  border-right: 17.5px solid transparent;
+  border-bottom: 16px solid #F7AB1B;
+}
+.dd-item {
+  left: 0; width: 225px; text-align: center;
+  font-size: 14px; line-height: 16.8px; font-weight: 400;
+  text-transform: uppercase;
+  color: var(--navy); text-decoration: none;
+}
+.dd-1 { top: 23px;  }
+.dd-2 { top: 75px;  }
+.dd-3 { top: 126px; }
+.dd-4 { top: 176px; }
+.dd-5 { top: 227px; }
+.dd-divider {
+  position: absolute; left: 36px; top: 45.5px;
+  width: 153px; height: 2px; background: var(--navy);
+}
+
+/* =============================== HERO =============================== */
+
+.subscribe-line {
+  left: 744px; top: 112px;
+  font-size: 13px; line-height: 15.6px; font-weight: 400;
+  letter-spacing: -0.025em; white-space: pre;
+  color: var(--white);
+}
+.sub-soc-1 { left: 1108px; top: 107px; width: 16px; height: 22px; }
+.sub-soc-2 { left: 1145px; top: 108px; width: 21px; height: 21px; }
+.sub-soc-3 { left: 1189px; top: 108px; width: 21px; height: 21px; }
+.sub-soc-4 { left: 1232px; top: 109px; width: 22px; height: 18px; }
+
+.floating-btn { left: 1459px; top: 290px; width: 257px; height: 312px; }
+
+/* ============================== CARDS =============================== */
+
+.card-hs-1 { left: 363px;  top: 743px;  width: 398px; height: 264px; }
+.card-hs-2 { left: 760px;  top: 742px;  width: 398px; height: 265px; }
+.card-hs-3 { left: 1159px; top: 742px;  width: 398px; height: 265px; }
+.card-hs-4 { left: 561px;  top: 1008px; width: 398px; height: 265px; }
+.card-hs-5 { left: 960px;  top: 1008px; width: 398px; height: 265px; }
+
+.card-body {
+  font-size: 16px; line-height: 20.98px; font-weight: 400;
+  color: var(--white); text-align: right;
+}
+.card-1 { right: 1214px; top: 920px;  }
+.card-2 { right: 820px;  top: 915px;  }
+.card-3 { right: 420px;  top: 918px;  }
+.card-4 { right: 1018px; top: 1184px; }
+.card-5 { right: 619px;  top: 1186px; }
+
+.about-text {
+  left: 360px; top: 1336px; width: 1200px;
+  font-size: 20px; line-height: 32px; font-weight: 400;
+  letter-spacing: -0.01em; text-align: center; white-space: normal;
+  color: var(--lavender);
+}
+
+/* =============================== JOIN =============================== */
+
+.join-cta {
+  left: 964px;
+  font-size: 18px; line-height: 24px; font-weight: 700;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.join-cta-1 { top: 1666px; left: 964px; }
+.join-cta-2 { top: 1747px; left: 963px; }
+
+.btn {
+  position: absolute; width: 173px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+}
+.btn-1 { left: 1276px; top: 1667px; }
+.btn-2 { left: 1276px; top: 1751px; }
+.t-btn {
+  font-size: 14px; font-weight: 500;
+  letter-spacing: -0.04em; text-transform: uppercase;
+  color: var(--white);
+  transform: scaleX(1.1123);
+  position: relative; top: -1px; left: -2px;
+}
+
+/* =============================== NEWS =============================== */
+
+.news-headline {
+  right: 631px; top: 1982px;
+  font-size: 24px; line-height: 28px; font-weight: 700;
+  text-transform: uppercase; text-align: right;
+  color: var(--lavender);
+}
+.news-body {
+  right: 630px; top: 2089px;
+  font-size: 16px; line-height: 24px; font-weight: 400;
+  text-align: right;
+  color: var(--white);
+}
+.news-learn-more {
+  left: 1172px; top: 2297.7px;
+  font-size: 16px; line-height: 16px; font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--white); text-decoration: none;
+}
+.news-arrow-l { left: 1036px; top: 2290px; width: 20px; height: 28px; }
+.news-arrow-r { left: 1080px; top: 2290px; width: 20px; height: 28px; }
+
+/* ======================= MEMBER NAME BLOCKS ========================= */
+
+.member {
+  width: 260px; text-align: center;
+  font-size: 12.65px; line-height: 15.18px;
+}
+.m-name { font-weight: 700; color: var(--yellow); }
+.m-city { font-weight: 400; color: var(--white); }
+.m-role { font-style: italic; font-weight: 400; color: var(--white); }
+
+/* executive board (centers under portraits) */
+.board-1 { left: 509.5px; top: 2776px; }
+.board-2 { left: 723.5px; top: 2775px; }
+.board-3 { left: 937px;   top: 2776px; }
+.board-4 { left: 1148px;  top: 2776px; }
+.board-5 { left: 616.5px; top: 3004px; }
+.board-6 { left: 831px;   top: 3002px; }
+.board-7 { left: 1043px;  top: 3002px; }
+
+/* ============================== SOCIAL ============================== */
+
+.soc-1 { left: 1162px; top: 3226px; width: 21px; height: 33px; }
+.soc-2 { left: 1194px; top: 3228px; width: 29px; height: 29px; }
+.soc-3 { left: 1234px; top: 3228px; width: 29px; height: 29px; }
+.soc-4 { left: 1273px; top: 3227px; width: 32px; height: 32px; }
+.soc-5 { left: 1316px; top: 3229px; width: 34px; height: 28px; }
+
+/* ============================= MEMBERS ============================== */
+
+.filter-label {
+  font-size: 11.4px; line-height: 11.4px; font-weight: 600;
+  text-transform: uppercase;
+  color: var(--white);
+  transform: scaleX(1.1123);
+  position: relative; top: -1px; left: -2px; transform-origin: left top;
+}
+.label-county { left: 1052px; top: 3738px; }
+.label-name   { left: 1260px; top: 3738px; }
+
+.mem-1 { left: 508px;    top: 4035px; }
+.mem-2 { left: 724px;    top: 4034px; }
+.mem-3 { left: 937.5px;  top: 4035px; }
+.mem-4 { left: 1150.5px; top: 4035px; }
+.mem-5 { left: 615px;    top: 4263px; }
+.mem-6 { left: 830px;    top: 4261px; }
+.mem-7 { left: 1047.5px; top: 4261px; }
+
+.mem-arrow-l { left: 485px;  top: 4061px; width: 28px; height: 68px; }
+.mem-arrow-r { left: 1408px; top: 4061px; width: 28px; height: 68px; }
+
+/* ============================== FOOTER ============================== */
+
+.footer-logo { left: 505px; top: 4474px; width: 226px; height: 104px; }
+
+.ft-block { text-align: right; color: var(--navy); }
+
+.ft-press-h {
+  right: 503px; top: 4510px;
+  font-size: 16px; line-height: 22px; font-weight: 700;
+  text-transform: uppercase;
+}
+.ft-press {
+  right: 503px; top: 4531.4px;
+  font-size: 14px; line-height: 20px; font-weight: 400;
+}
+
+.ft-org {
+  left: 502px; top: 4612px;
+  font-size: 14px; line-height: 20px; font-weight: 400;
+  color: var(--navy);
+}
+
+.ft-contact-h {
+  right: 506px; top: 4610px;
+  font-size: 16px; line-height: 22px; font-weight: 700;
+  text-transform: uppercase;
+}
+.ft-contact {
+  right: 506px; top: 4631.3px;
+  font-size: 14px; line-height: 20px; font-weight: 400;
+}
+
+.ft-soc-1 { left: 1245px; top: 4691px; width: 20px; height: 31px; }
+.ft-soc-2 { left: 1274px; top: 4693px; width: 27px; height: 27px; }
+.ft-soc-3 { left: 1311px; top: 4693px; width: 27px; height: 27px; }
+.ft-soc-4 { left: 1347px; top: 4692px; width: 30px; height: 30px; }
+.ft-soc-5 { left: 1386px; top: 4694px; width: 32px; height: 26px; }
+
+.ft-copy {
+  left: 500px; top: 4773px;
+  font-family: "Inter", "Poppins", sans-serif;
+  font-size: 12px; line-height: 14.4px; font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+.ft-site {
+  right: 501px; top: 4774px;
+  font-family: "Inter", "Poppins", sans-serif;
+  font-size: 12px; line-height: 14.4px; font-weight: 400;
+  color: var(--navy);
+}
