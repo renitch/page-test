@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Dark blurred rectangle in the hero sky left of "United for Progress" — the
+  area reconstructed behind the mockup's open dropdown was rendered without
+  the hero Curves adjustment. Now tone-matched with a master curve plus a
+  membrane (harmonic) offset so the patch meets the surrounding sky exactly.
+
 ### Added
 - Initial pixel-identical HTML/CSS implementation of the ABMA homepage mockup
   (`ABMA_Homepage.psd`, 1920 × 4825 px): header with hover dropdown, hero,
