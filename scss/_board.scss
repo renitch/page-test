@@ -1,0 +1,95 @@
+// ============================================================
+// Our Executive Board — portrait rows over the faint flag art
+// ============================================================
+
+.board {
+  position: relative;
+  background: $navy;
+  padding-bottom: rem-calc(360);
+  color: $white;
+
+  // faint Arkansas flag artwork, clipped to the section box
+  // (the news card above overflows upward, so no overflow:hidden here)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    // 2176px art, left edge at -210px on the 1920 design == 50% - 82px anchor
+    background: url('../assets/img/bg-flag.jpg') no-repeat calc(50% - #{rem-calc(82)}) rem-calc(-207);
+    background-size: rem-calc(2176) auto;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  &__title {
+    position: relative;
+    margin-top: rem-calc(91);
+    text-align: center;
+
+    span { display: block; }
+
+    .title-tail {
+      width: rem-calc(393);
+      margin: rem-calc(16) auto 0;
+    }
+  }
+
+  .member-row--second { margin-top: rem-calc(41); }
+}
+
+// shared portrait figure (board + active members)
+.member-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: rem-calc(87);
+
+  &--first { margin-top: rem-calc(78); }
+
+  @include breakpoint(medium down) {
+    flex-wrap: wrap;
+    gap: rem-calc(40);
+  }
+}
+
+.member {
+  position: relative;
+  width: rem-calc(126);
+  text-align: center;
+
+  // gold ring around the portrait circle (a layer effect in the mockup)
+  &::before {
+    content: '';
+    position: absolute;
+    top: rem-calc(2);
+    left: rem-calc(2);
+    width: rem-calc(122);
+    height: rem-calc(122);
+    border: rem-calc(1.5) solid $yellow;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  // 240×254 tile; circle sits at (57,94)..(183,220) inside it
+  &__photo {
+    width: rem-calc(240);
+    max-width: none;
+    margin: rem-calc(-94) rem-calc(-57) rem-calc(-34);
+  }
+
+  &__caption {
+    margin-top: rem-calc(7);
+    font-size: rem-calc(12.65);
+    line-height: rem-calc(15.18);
+    white-space: nowrap;
+  }
+
+  &__name {
+    font-weight: 700;
+    color: $yellow;
+  }
+
+  &__city { text-transform: uppercase; }
+
+  &__role { font-style: italic; }
+}

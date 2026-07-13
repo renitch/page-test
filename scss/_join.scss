@@ -1,0 +1,79 @@
+// ============================================================
+// Join the Organization — yellow band with CTA rows
+// ============================================================
+
+.join {
+  position: relative;
+  background: $yellow;
+  // deep bottom padding: the news card from the next section overlaps this zone
+  padding: rem-calc(122) 0 rem-calc(415);
+  overflow: hidden;
+
+  // oversized "AB" brand watermark
+  &::before {
+    content: 'AB';
+    position: absolute;
+    top: rem-calc(-210);
+    left: calc(50% - #{rem-calc(560)});
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: rem-calc(1150);
+    line-height: 1;
+    letter-spacing: rem-calc(-40);
+    color: rgba($white, 0.07);
+    pointer-events: none;
+  }
+
+  .grid-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: rem-calc(60);
+  }
+
+  &__title {
+    color: $navy;
+
+    &-line1 { display: block; font-size: rem-calc(77); line-height: rem-calc(64); }
+    &-line2 { display: block; font-size: rem-calc(45); line-height: rem-calc(50); }
+
+    .title-tail {
+      width: rem-calc(318);
+      margin-top: rem-calc(22);
+
+      &::after { right: 80%; }
+    }
+  }
+
+  &__ctas {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(38);
+    padding-top: rem-calc(2);
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem-calc(17);
+    width: rem-calc(485);
+
+    p {
+      font-size: rem-calc(18);
+      line-height: rem-calc(24);
+      font-weight: 700;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: $navy;
+    }
+  }
+
+  @include breakpoint(medium down) {
+    padding: rem-calc(60) 0 rem-calc(70);
+
+    .grid-container { flex-direction: column; }
+    &__row { width: 100%; flex-wrap: wrap; }
+  }
+}

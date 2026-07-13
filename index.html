@@ -2,176 +2,319 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1920">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arkansas Black Mayors Association — United for Progress</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Archivo:wght@700;800;900&family=Inter:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div class="page">
 
-  <!-- Background artwork strips (photos, shapes, icons, display headlines) -->
-  <img class="bg bg-0" src="assets/bg-0.png" alt="">
-  <img class="bg bg-1" src="assets/bg-1.png" alt="">
-  <img class="bg bg-2" src="assets/bg-2.png" alt="">
-  <img class="bg bg-3" src="assets/bg-3.png" alt="">
-  <img class="bg bg-4" src="assets/bg-4.png" alt="">
-  <img class="bg bg-5" src="assets/bg-5.png" alt="">
-
-  <!-- ============================= HEADER ============================= -->
-  <header>
-    <a class="hs logo-link" href="#" aria-label="Arkansas Black Mayors Association — home"></a>
-
-    <nav class="utility-nav" aria-label="Utility">
-      <a class="t donate" href="#">Donate</a>
-      <a class="t contact" href="#">Contact</a>
-    </nav>
-
-    <nav class="main-nav" aria-label="Main">
-      <div class="nav-about-wrap">
-        <a class="t nav-link nav-about" href="#">About ABMA</a>
-        <div class="dropdown" role="menu" aria-label="About ABMA submenu">
-          <span class="dd-notch" aria-hidden="true"></span>
-          <a class="t dd-item dd-1" href="#" role="menuitem">Chairman's Welcome</a>
-          <span class="dd-divider" aria-hidden="true"></span>
-          <a class="t dd-item dd-2" href="#" role="menuitem">Board of Trustees</a>
-          <a class="t dd-item dd-3" href="#" role="menuitem">Members</a>
-          <a class="t dd-item dd-4" href="#" role="menuitem">Staff</a>
-          <a class="t dd-item dd-5" href="#" role="menuitem">Policy</a>
+<header class="header">
+    <div class="header__top">
+        <div class="grid-container grid-container--header menu-grid-container">
+            <div class="logo">
+                <h1><a href="#" class="custom-logo-link" rel="home" title="ABMA"><img width="149" height="68" src="assets/img/logo.png" class="custom-logo" alt="ABMA"></a><span class="css-clip">ABMA</span></h1>
+            </div>
+            <div class="header__right">
+                <div class="header__utility">
+                    <a class="header__donate" href="#">Donate</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="header__navrow">
+                    <div class="header__menu">
+                        <nav class="top-bar" id="main-menu">
+                            <ul class="menu header-menu" role="menubar">
+                                <li class="menu-item menu-item-has-children" role="none">
+                                    <a href="#" role="menuitem" aria-haspopup="true">About ABMA</a>
+                                    <ul class="sub-menu" role="menu" aria-label="About ABMA submenu">
+                                        <li role="none"><a href="#" role="menuitem">Chairman's Welcome</a></li>
+                                        <li role="none"><a href="#" role="menuitem">Board of Trustees</a></li>
+                                        <li role="none"><a href="#" role="menuitem">Members</a></li>
+                                        <li role="none"><a href="#" role="menuitem">Staff</a></li>
+                                        <li role="none"><a href="#" role="menuitem">Policy</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none"><a href="#" role="menuitem">Programs</a></li>
+                                <li class="menu-item" role="none"><a href="#" role="menuitem">News &amp; Events</a></li>
+                                <li class="menu-item" role="none"><a href="#" role="menuitem">Corporate Partners</a></li>
+                                <li class="menu-item" role="none"><a href="#" role="menuitem">Resources</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header__search">
+                        <form method="get" id="searchform" class="search-form" action="/">
+                            <button type="submit" name="submit" id="searchsubmit" aria-label="Submit search">
+                                <svg viewBox="39 33 37 39" aria-hidden="true">
+                                    <circle cx="54.259" cy="48.054" r="13.007" fill="none" stroke="#1e2140" stroke-width="1.781" stroke-linecap="round" stroke-miterlimit="10"></circle>
+                                    <line x1="63.62" y1="59.331" x2="74.154" y2="69.865" fill="none" stroke="#1e2140" stroke-width="4.156" stroke-linecap="round" stroke-miterlimit="10"></line>
+                                </svg>
+                            </button>
+                            <input type="search" name="s" id="s" placeholder="Search..." value="">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <span class="t nav-sep sep-1" aria-hidden="true">|</span>
-      <a class="t nav-link nav-programs" href="#">programs</a>
-      <span class="t nav-sep sep-2" aria-hidden="true">|</span>
-      <a class="t nav-link nav-news" href="#">News &amp; Events</a>
-      <span class="t nav-sep sep-3" aria-hidden="true">|</span>
-      <a class="t nav-link nav-corporate" href="#">Corporate Partners</a>
-      <span class="t nav-sep sep-4" aria-hidden="true">|</span>
-      <a class="t nav-link nav-resources" href="#">Resources</a>
-    </nav>
+    </div>
+    <div class="header__bottom">
+        <div class="header__subscribe">
+            <svg viewBox="43 36 30 34" aria-hidden="true">
+                <path fill="#f6ab1b" d="M49.13,38.964c-.276.059-.953.775-1.17,1.018-1.754,1.945-3.075,4.659-3.601,7.221-.158.789-.48,2.825-.289,3.542.204.775,1.4.94,1.807.158.184-.355.118-1.36.171-1.833.283-2.793,1.4-5.375,3.161-7.537.309-.375,1.005-.953,1.111-1.38.184-.756-.447-1.34-1.189-1.189h0ZM72.417,48.169c-.381-2.753-1.61-5.513-3.338-7.668-.309-.388-1.17-1.452-1.623-1.538-.151-.026-.309-.026-.46,0-.585.105-.887.795-.683,1.327.138.342.9,1.018,1.189,1.367,1.643,2.011,2.766,4.632,3.036,7.228.059.578-.026,1.597.21,2.044.407.749,1.616.591,1.787-.171.125-.565-.033-1.971-.118-2.589h0Z"></path>
+                <path fill="#f6ab1b" d="M71.149,61.705c-.263-.802-1.196-1.393-1.735-2.03-3.489-4.107-.979-8.246-2.674-12.583-1.196-3.055-4.159-5.336-7.445-5.651-.125-.118.177-2.839-.145-3.469-.401-.769-1.564-.565-1.787.23l-.013,3.239c-4.205.388-7.603,3.818-8.076,8.003-.401,3.561.677,6.282-1.577,9.548-.565.815-1.196,1.242-1.774,1.925-1.275,1.505-.368,3.621,1.551,3.805l6.052.026c.46,2.037,2.05,3.443,4.067,3.864h1.34l.651-.164c1.754-.48,3.115-1.952,3.489-3.719l6.104-.007c1.478-.151,2.444-1.577,1.971-3.016h0ZM60.74,65.346c-1.281,2.017-4.448,1.63-5.152-.624h5.408c.026.223-.131.434-.256.624ZM69.138,62.743l-21.421.033c-.348.013-.559-.237-.361-.545,1.741-1.446,3.029-3.489,3.535-5.704.854-3.759-.828-7.478,2.024-10.743,1.216-1.393,2.996-2.3,4.849-2.438,3.194-.243,6.17,1.695,7.248,4.692.867,2.412.138,5.283.565,7.819.329,1.971,1.327,3.995,2.681,5.46.197.21.953.835,1.018.986.092.21.039.315-.138.44Z"></path>
+            </svg>
+            <a href="#">Subscribe to the newsletter</a>
+        </div>
+        <div class="header__follow">
+            <span>Follow us on Social :</span>
+            <ul class="stay-tuned">
+                <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-facebook-f"></span></a></li>
+                <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-instagram"></span></a></li>
+                <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="X (Twitter)" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-x-twitter"></span></a></li>
+                <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="YouTube" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-youtube"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</header>
 
-    <form class="search" role="search">
-      <input class="search-input" type="search" placeholder="Search..." aria-label="Search">
-    </form>
-  </header>
+<main>
+    <section class="hero" aria-label="United for Progress">
+        <img class="hero__image" src="assets/img/hero.jpg" alt="Little Rock, Arkansas skyline">
+        <h2 class="hero__title"><span class="hero__title-line1">United for</span><span class="hero__title-line2">Progress</span></h2>
+        <a class="hero__bubble" href="#">
+            <span class="hero__bubble-click">Click Here</span>
+            <span class="hero__bubble-sub">To learn more about our</span>
+            <span class="hero__bubble-event">2026 ABMA Leadership Summit &amp; Annual Gala</span>
+        </a>
+    </section>
 
-  <!-- ============================== HERO ============================== -->
-  <section class="hero" aria-label="Hero">
-    <h1 class="sr-only">United for Progress</h1>
-    <p class="t subscribe-line">Subscribe to the newsletter        |        Follow us on Social :</p>
-    <a class="hs sub-soc-1" href="#" aria-label="Facebook"></a>
-    <a class="hs sub-soc-2" href="#" aria-label="Instagram"></a>
-    <a class="hs sub-soc-3" href="#" aria-label="X (Twitter)"></a>
-    <a class="hs sub-soc-4" href="#" aria-label="YouTube"></a>
-    <a class="hs floating-btn" href="#" aria-label="Click here to learn more about our 2026 ABMA Leadership Summit &amp; Annual Gala"></a>
-  </section>
+    <section class="cards" aria-label="Explore ABMA">
+        <div class="grid-container grid-container--cards">
+            <div class="cards__grid">
+                <a class="card" href="#" style="background-image:url('assets/img/card-presidents-welcome.jpg')">
+                    <h3 class="card__title">President&rsquo;s<br>Welcome</h3>
+                    <span class="circle-arrow" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4"/></svg></span>
+                    <p class="card__text">Meet the Leader carrying forward<br>ABMA's legacy of service and<br>Black leadership.</p>
+                </a>
+                <a class="card" href="#" style="background-image:url('assets/img/card-news-events.jpg')">
+                    <h3 class="card__title">News &amp; Events</h3>
+                    <span class="circle-arrow" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4"/></svg></span>
+                    <p class="card__text">Stay Informed on the<br>latest updates, announcements, and<br>upcoming events.</p>
+                </a>
+                <a class="card" href="#" style="background-image:url('assets/img/card-corporate.jpg')">
+                    <h3 class="card__title">Corporate<br>Partner Council</h3>
+                    <span class="circle-arrow" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4"/></svg></span>
+                    <p class="card__text">Join the companies investing In equity,<br>opportunity, and thriving<br>Black communities.</p>
+                </a>
+                <a class="card" href="#" style="background-image:url('assets/img/card-trustees.jpg')">
+                    <h3 class="card__title">Board of Trustees</h3>
+                    <span class="circle-arrow" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4"/></svg></span>
+                    <p class="card__text">Meet the cedicated officials shaping<br>ABMA's vision, direction, and<br>collective impact.</p>
+                </a>
+                <a class="card" href="#" style="background-image:url('assets/img/card-policy.jpg')">
+                    <h3 class="card__title">Policy</h3>
+                    <span class="circle-arrow" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4"/></svg></span>
+                    <p class="card__text">Explore the legislative priorities and<br>policy efforts driving change In<br>our communities.</p>
+                </a>
+            </div>
+            <p class="cards__about">The Arkansas Black Mayors Association (ABMA) is a coalition of forward-thinking leaders dedicated&nbsp; to advancing<br>the concerns of&nbsp; Black mayors and communities across Arkansas. Our goal is to foster economic growth,<br>revitalize neighborhoods,&nbsp; and engage in political advocacy to improve the well-being<br>of residents in Black-majority municipalities.</p>
+        </div>
+    </section>
 
-  <!-- ============================== CARDS ============================= -->
-  <section class="cards" aria-label="Quick links">
-    <a class="hs card-hs-1" href="#" aria-label="President's Welcome"></a>
-    <a class="hs card-hs-2" href="#" aria-label="News &amp; Events"></a>
-    <a class="hs card-hs-3" href="#" aria-label="Corporate Partner Council"></a>
-    <a class="hs card-hs-4" href="#" aria-label="Board of Trustees"></a>
-    <a class="hs card-hs-5" href="#" aria-label="Policy"></a>
+    <section class="join" aria-label="Join the Organization">
+        <div class="grid-container grid-container--join">
+            <h2 class="join__title section-title">
+                <span class="join__title-line1">Join the</span>
+                <span class="join__title-line2">Organization</span>
+                <span class="title-tail" aria-hidden="true"></span>
+            </h2>
+            <div class="join__ctas">
+                <div class="join__row">
+                    <p>Interested in Becoming<br>a Member Mayor?</p>
+                    <a class="button" href="#">Learn More</a>
+                </div>
+                <div class="join__row">
+                    <p>Interested in Becoming a<br>Corporate Business Partner?</p>
+                    <a class="button" href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h3 class="sr-only">President's Welcome</h3>
-    <p class="t card-body card-1">Meet the Leader carrying forward<br>ABMA's legacy of service and<br>Black leadership.</p>
-    <h3 class="sr-only">News &amp; Events</h3>
-    <p class="t card-body card-2">Stay Informed on the<br>latest updates, announcements, and<br>upcoming events.</p>
-    <h3 class="sr-only">Corporate Partner Council</h3>
-    <p class="t card-body card-3">Join the companies investing In equity,<br>opportunity, and thriving<br>Black communities.</p>
-    <h3 class="sr-only">Board of Trustees</h3>
-    <p class="t card-body card-4">Meet the cedicated officials shaping<br>ABMA's vision, direction, and<br>collective impact.</p>
-    <h3 class="sr-only">Policy</h3>
-    <p class="t card-body card-5">Explore the legislative priorities and<br>policy efforts driving change In<br>our communities.</p>
+    <section class="board" aria-label="Our Executive Board">
+        <div class="news" aria-label="The Latest News">
+            <div class="grid-container grid-container--news">
+                <article class="news__card">
+                    <img class="news__card-photo" src="assets/img/news-helena.jpg" alt="Joint press conference for the ABMA Watershed Project">
+                    <div class="news__card-body">
+                        <h3 class="news__card-headline">Helena / West Helena<br>celebrates next phase of<br>watershed project</h3>
+                        <p class="news__card-text">The Arkansas Black Mayors Association, in<br>partnership with Mayor Joseph Whitfield of<br>Helena-West Helena and Mayor Lisa Hicks-Gilbert<br>of Elaine, recently hosted a joint press conference<br>to announce the commencement of the design<br>phase for the ABMA Watershed Project for their<br>respective cities.</p>
+                        <div class="news__card-nav">
+                            <div class="news__card-arrows">
+                                <a href="#" aria-label="Previous story"><span class="fas fa-chevron-left" aria-hidden="true"></span></a>
+                                <a href="#" aria-label="Next story"><span class="fas fa-chevron-right" aria-hidden="true"></span></a>
+                            </div>
+                            <a href="#">Learn More <span class="circle-arrow" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M3 1l4 4-4 4"/></svg></span></a>
+                        </div>
+                        <div class="news__card-dots" aria-hidden="true"><span></span><span></span><span class="is-active"></span></div>
+                    </div>
+                </article>
+                <aside class="news__aside">
+                    <h2 class="section-title"><span>The</span><span>Latest</span><span class="news__aside-big">News</span></h2>
+                    <span class="title-tail" aria-hidden="true"></span>
+                </aside>
+            </div>
+        </div>
 
-    <p class="t about-text">The Arkansas Black Mayors Association (ABMA) is a coalition of forward-thinking leaders dedicated&nbsp; to advancing<br>the concerns of&nbsp; Black mayors and communities across Arkansas. Our goal is to foster economic growth,&nbsp;<br>revitalize neighborhoods,&nbsp; and engage in political advocacy to improve the well-being&nbsp;<br>of residents in Black-majority municipalities.</p>
-  </section>
+        <h2 class="board__title section-title"><span>Our</span><span>Executive Board</span><span class="title-tail" aria-hidden="true"></span></h2>
 
-  <!-- ============================== JOIN =============================== -->
-  <section class="join" aria-label="Join the Organization">
-    <h2 class="sr-only">Join the Organization</h2>
-    <p class="t join-cta join-cta-1">Interested in Becoming<br>a Member Mayor?</p>
-    <a class="btn btn-1" href="#"><span class="t-btn">Learn More</span></a>
-    <p class="t join-cta join-cta-2">Interested in Becoming a<br>Corporate Business Partner?</p>
-    <a class="btn btn-2" href="#"><span class="t-btn">Learn More</span></a>
-  </section>
+        <div class="grid-container">
+            <div class="member-row member-row--first">
+                <figure class="member">
+                    <img class="member__photo" src="assets/img/p-tomeka-butler.png" alt="Mayor Tomeka Butler">
+                    <figcaption class="member__caption"><span class="member__name">Mayor Tomeka Butler</span><br><span class="member__city">EUDORA - AR</span><br><em class="member__role">Chairman</em></figcaption>
+                </figure>
+                <figure class="member">
+                    <img class="member__photo" src="assets/img/p-derrick-rainey.png" alt="Mayor Derrick Rainey">
+                    <figcaption class="member__caption"><span class="member__name">Mayor Derrick Rainey</span><br><span class="member__city">Wrightsville - AR</span><br><em class="member__role">Vice Chairman</em></figcaption>
+                </figure>
+                <figure class="member">
+                    <img class="member__photo" src="assets/img/p-lisa-hicks.png" alt="Mayor Lisa Hicks Gilbert">
+                    <figcaption class="member__caption"><span class="member__name">Mayor Lisa Hicks Gilbert</span><br><span class="member__city">Elaine - AR</span><br><em class="member__role">Treasurer</em></figcaption>
+                </figure>
+                <figure class="member">
+                    <img class="member__photo" src="assets/img/p-melissa-logan.png" alt="Mayor Melissa Logan">
+                    <figcaption class="member__caption"><span class="member__name">Mayor Melissa Logan</span><br><span class="member__city">Blytheville, - AR</span><br><em class="member__role">Secretary</em></figcaption>
+                </figure>
+            </div>
+            <div class="member-row member-row--second">
+                <figure class="member">
+                    <img class="member__photo" src="assets/img/p-terry-coleman.png" alt="Mayor Terry Coleman">
+                    <figcaption class="member__caption"><span class="member__name">Mayor Terry Coleman</span><br><span class="member__city">Menifee - AR</span><br><em class="member__role">Parliamentarian</em></figcaption>
+                </figure>
+                <figure class="member">
+                    <img class="member__photo" src="assets/img/p-leroy-wright.png" alt="Mayor Leroy Wright, Jr.">
+                    <figcaption class="member__caption"><span class="member__name">Mayor Leroy Wright, Jr.</span><br><span class="member__city">Anthonyville - AR</span><br><em class="member__role">Chaplain</em></figcaption>
+                </figure>
+                <figure class="member">
+                    <img class="member__photo" src="assets/img/p-carolyn-slaughter.png" alt="Mayor Carolyn Slaughter">
+                    <figcaption class="member__caption"><span class="member__name">Mayor Carolyn Slaughter</span><br><span class="member__city">Parkin - AR</span><br><em class="member__role">At-Large Member</em></figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
 
-  <!-- ============================== NEWS =============================== -->
-  <section class="news" aria-label="The Latest News">
-    <h2 class="sr-only">The Latest News</h2>
-    <p class="t news-headline">Helena / West Helena<br>celebrates next phase of<br>watershed project</p>
-    <p class="t news-body">The Arkansas Black Mayors Association, in<br>partnership with Mayor Joseph Whitfield of<br>Helena-West Helena and Mayor Lisa Hicks-Gilbert<br>of Elaine, recently hosted a joint press conference<br>to announce the commencement of the design<br>phase for the ABMA Watershed Project for their<br>respective cities.</p>
-    <a class="t news-learn-more" href="#">Learn More</a>
-    <a class="hs news-arrow-l" href="#" aria-label="Previous news"></a>
-    <a class="hs news-arrow-r" href="#" aria-label="Next news"></a>
-  </section>
+    <section class="members" aria-label="Active Members">
+        <div class="social" aria-label="Follow us on social media">
+            <div class="social__card">
+                <span class="social__rule" aria-hidden="true"></span>
+                <div class="social__head">
+                    <h2 class="social__title section-title">Follow us on Social media</h2>
+                    <ul class="stay-tuned">
+                        <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-facebook-f"></span></a></li>
+                        <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-instagram"></span></a></li>
+                        <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="X (Twitter)" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-x-twitter"></span></a></li>
+                        <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-linkedin"></span></a></li>
+                        <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="YouTube" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-youtube"></span></a></li>
+                    </ul>
+                </div>
+                <div class="social__pics">
+                    <img src="assets/img/social-1.jpg" alt="Social media post: School Districts Cutting DEI Programs">
+                    <img src="assets/img/social-2.jpg" alt="Social media post: Happy Juneteenth">
+                    <img src="assets/img/social-3.jpg" alt="Social media post: Mobilizing Black Voters">
+                    <img src="assets/img/social-4.jpg" alt="Social media post: We Remember. We Honor. We Never Forget.">
+                </div>
+            </div>
+        </div>
 
-  <!-- ========================= EXECUTIVE BOARD ========================= -->
-  <section class="board" aria-label="Our Executive Board">
-    <h2 class="sr-only">Our Executive Board</h2>
+        <div class="grid-container grid-container--members">
+            <div class="members__head">
+                <h2 class="members__title section-title"><span>Active</span><span>Members</span><span class="title-tail" aria-hidden="true"></span></h2>
+                <div class="members__filters">
+                    <div class="members__filter">
+                        <label for="filter-county">County</label>
+                        <select id="filter-county" name="county"><option value=""></option></select>
+                    </div>
+                    <div class="members__filter">
+                        <label for="filter-name">Name</label>
+                        <select id="filter-name" name="name"><option value=""></option></select>
+                    </div>
+                </div>
+            </div>
 
-    <p class="t member board-1"><span class="m-name ls40">Mayor Tomeka Butler</span><br><span class="m-city">EUDORA - AR</span><br><em class="m-role">Chairman</em></p>
-    <p class="t member board-2"><span class="m-name">Mayor Derrick Rainey</span><br><span class="m-city caps">Wrightsville - AR</span><br><em class="m-role">Vice Chairman</em></p>
-    <p class="t member board-3"><span class="m-name">Mayor Lisa Hicks Gilbert</span><br><span class="m-city caps">Elaine - AR</span><br><em class="m-role">Treasurer</em></p>
-    <p class="t member board-4"><span class="m-name ls40">Mayor Melissa Logan</span><br><span class="m-city caps ls40">Blytheville, - AR</span><br><em class="m-role ls40">Secretary</em></p>
-    <p class="t member board-5"><span class="m-name ls40">Mayor Terry Coleman</span><br><span class="m-city caps">Menifee - AR</span><br><em class="m-role ls40">Parliamentarian</em></p>
-    <p class="t member board-6"><span class="m-name ls40">Mayor Leroy Wright, Jr.</span><br><span class="m-city caps ls40">Anthonyville - AR</span><br><em class="m-role ls40">Chaplain</em></p>
-    <p class="t member board-7"><span class="m-name ls40">Mayor Carolyn Slaughter</span><br><span class="m-city caps ls40">Parkin - AR</span><br><em class="m-role ls40">At-Large Member</em></p>
-  </section>
+            <div class="members__slider">
+                <div class="member-row">
+                    <figure class="member">
+                        <img class="member__photo" src="assets/img/m-daryell-howell.png" alt="Mayor Daryell Howell">
+                        <figcaption class="member__caption"><span class="member__name">Mayor Daryell Howell</span><br><span class="member__city">City Of Strong, - AR</span></figcaption>
+                    </figure>
+                    <figure class="member">
+                        <img class="member__photo" src="assets/img/m-harry-brown.png" alt="Mayor Harry Brown">
+                        <figcaption class="member__caption"><span class="member__name">Mayor Harry Brown</span><br><span class="member__city">City Of Stephens, - AR</span></figcaption>
+                    </figure>
+                    <figure class="member">
+                        <img class="member__photo" src="assets/img/m-larry-bryant.png" alt="Mayor Larry Bryant">
+                        <figcaption class="member__caption"><span class="member__name">Mayor Larry Bryant</span><br><span class="member__city">City Of Forrest, - AR</span></figcaption>
+                    </figure>
+                    <figure class="member">
+                        <img class="member__photo" src="assets/img/m-price-boney.png" alt="Mayor Price Boney">
+                        <figcaption class="member__caption"><span class="member__name">Mayor Price Boney</span><br><span class="member__city">City Of Dumas, - AR</span></figcaption>
+                    </figure>
+                </div>
+                <div class="member-row member-row--second">
+                    <figure class="member">
+                        <img class="member__photo" src="assets/img/m-roy-winfrey.png" alt="Mayor Roy Winfrey">
+                        <figcaption class="member__caption"><span class="member__name">Mayor Roy Winfrey</span><br><span class="member__city">City Of Madison, - AR</span></figcaption>
+                    </figure>
+                    <figure class="member">
+                        <img class="member__photo" src="assets/img/m-toni-perry.png" alt="Mayor Toni Perry">
+                        <figcaption class="member__caption"><span class="member__name">Mayor Toni Perry</span><br><span class="member__city">City Of Wilmar, - AR</span></figcaption>
+                    </figure>
+                    <figure class="member">
+                        <img class="member__photo" src="assets/img/m-ulrica-trotter.png" alt="Mayor Ulrica Trotter">
+                        <figcaption class="member__caption"><span class="member__name">Mayor Ulrica Trotter</span><br><span class="member__city">City Of Fountain Hill,&nbsp; - AR</span></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <span class="members__deco" aria-hidden="true"></span>
+    </section>
+</main>
 
-  <!-- ======================== SOCIAL MEDIA FEED ======================== -->
-  <section class="social" aria-label="Follow us on social media">
-    <h2 class="sr-only">Follow us on Social Media</h2>
-    <a class="hs soc-1" href="#" aria-label="Facebook"></a>
-    <a class="hs soc-2" href="#" aria-label="Instagram"></a>
-    <a class="hs soc-3" href="#" aria-label="X (Twitter)"></a>
-    <a class="hs soc-4" href="#" aria-label="LinkedIn"></a>
-    <a class="hs soc-5" href="#" aria-label="YouTube"></a>
-  </section>
+<footer class="footer">
+    <div class="grid-container">
+        <div class="footer__grid">
+            <div class="logo">
+                <a href="#" rel="home" title="ABMA"><img src="assets/img/logo-footer.png" alt="ABMA — Arkansas Black Mayors Association, United for Progress"></a>
+            </div>
+            <div class="footer__block">
+                <h3>Press inquiries:</h3>
+                <p>Stephanie Jackson<br>Stephanie@designgroupmarketing.com</p>
+            </div>
+            <p class="footer__org">Arkansas Black Mayors Association,<br>established in 1972, is a non-profit, charitable,<br>and educational organization</p>
+            <div class="footer__block">
+                <h3>Contact us</h3>
+                <p>300 Spring, Suite 1015 Little Rock, AR 72201<br>Call Us: (501) 913-2136&nbsp;&nbsp; |&nbsp;&nbsp; <a href="mailto:Fbateman@ar-blackmayors.com">Fbateman@ar-blackmayors.com</a></p>
+            </div>
+            <div class="footer__socialrow">
+                <ul class="stay-tuned">
+                    <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-facebook-f"></span></a></li>
+                    <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-instagram"></span></a></li>
+                    <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="X (Twitter)" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-x-twitter"></span></a></li>
+                    <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-linkedin"></span></a></li>
+                    <li class="stay-tuned__item"><a class="stay-tuned__link" href="#" target="_blank" aria-label="YouTube" rel="noopener noreferrer"><span aria-hidden="true" class="fab fa-youtube"></span></a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer__divider">
+        <div class="footer__legal">
+            <p>© 2026 Arkansas Black Mayors Association, Inc.&nbsp; All Rights Reserved.</p>
+            <p>Site | The Design Group</p>
+        </div>
+    </div>
+</footer>
 
-  <!-- ========================== ACTIVE MEMBERS ========================= -->
-  <section class="members" aria-label="Active Members">
-    <h2 class="sr-only">Active Members</h2>
-    <span class="t filter-label label-county">County</span>
-    <span class="t filter-label label-name">Name</span>
-
-    <p class="t member mem-1"><span class="m-name">Mayor Daryell Howell</span><br><span class="m-city caps">City Of Strong, - AR</span></p>
-    <p class="t member mem-2"><span class="m-name">Mayor Harry Brown</span><br><span class="m-city caps">City Of Stephens, - AR</span></p>
-    <p class="t member mem-3"><span class="m-name">Mayor Larry Bryant</span><br><span class="m-city caps">City Of Forrest, - AR</span></p>
-    <p class="t member mem-4"><span class="m-name">Mayor Price Boney</span><br><span class="m-city caps">City Of Dumas, - AR</span></p>
-    <p class="t member mem-5"><span class="m-name">Mayor Roy Winfrey</span><br><span class="m-city caps">City Of Madison, - AR</span></p>
-    <p class="t member mem-6"><span class="m-name">Mayor Toni Perry</span><br><span class="m-city caps">City Of Wilmar, - AR</span></p>
-    <p class="t member mem-7"><span class="m-name">Mayor Ulrica Trotter</span><br><span class="m-city caps">City Of Fountain Hill,&nbsp; - AR</span></p>
-
-    <a class="hs mem-arrow-l" href="#" aria-label="Previous members"></a>
-    <a class="hs mem-arrow-r" href="#" aria-label="Next members"></a>
-  </section>
-
-  <!-- ============================== FOOTER ============================= -->
-  <footer>
-    <a class="hs footer-logo" href="#" aria-label="Arkansas Black Mayors Association — home"></a>
-
-    <p class="t ft-block ft-press-h">Press inquiries:</p>
-    <p class="t ft-block ft-press">Stephanie Jackson<br>Stephanie@designgroupmarketing.com</p>
-
-    <p class="t ft-org">Arkansas Black Mayors Association,<br>established in 1972, is a non-profit, charitable,<br>and educational organization</p>
-
-    <p class="t ft-block ft-contact-h">Contact us</p>
-    <p class="t ft-block ft-contact">300 Spring, Suite 1015 Little Rock, AR 72201<br>Call Us: (501) 913-2136&nbsp;&nbsp; |&nbsp;&nbsp; Fbateman@ar-blackmayors.com</p>
-
-    <a class="hs ft-soc-1" href="#" aria-label="Facebook"></a>
-    <a class="hs ft-soc-2" href="#" aria-label="Instagram"></a>
-    <a class="hs ft-soc-3" href="#" aria-label="X (Twitter)"></a>
-    <a class="hs ft-soc-4" href="#" aria-label="LinkedIn"></a>
-    <a class="hs ft-soc-5" href="#" aria-label="YouTube"></a>
-
-    <p class="t ft-copy">© 2026 Arkansas Black Mayors Association, Inc.&nbsp; All Rights Reserved.</p>
-    <p class="t ft-site">Site | The Design Group</p>
-  </footer>
-
-</div>
 </body>
 </html>

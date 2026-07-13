@@ -1,0 +1,83 @@
+// ============================================================
+// Active Members — filter controls, portrait slider
+// ============================================================
+
+.members {
+  position: relative;
+  background: $navy-panel;
+  color: $white;
+  padding-bottom: rem-calc(132);
+
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: rem-calc(40);
+    margin-top: rem-calc(106);
+  }
+
+  &__title {
+    span { display: block; }
+
+    .title-tail {
+      width: rem-calc(200);
+      margin-top: rem-calc(8);
+      color: $white;
+
+      &::after { right: 44%; }
+    }
+  }
+
+  &__filters {
+    display: flex;
+    gap: rem-calc(42);
+  }
+
+  &__filter {
+    label {
+      display: block;
+      font-size: rem-calc(11.4);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: rem-calc(11);
+    }
+
+    select {
+      appearance: none;
+      width: rem-calc(166);
+      height: rem-calc(44);
+      background: rgba($white, 0.06);
+      border: rem-calc(1) solid rgba($white, 0.5);
+      color: $white;
+      font-family: $font-body;
+      font-size: rem-calc(13);
+      padding: 0 rem-calc(12);
+    }
+  }
+
+  &__slider {
+    position: relative;
+    margin-top: rem-calc(89);
+
+    .member-row--second { margin-top: rem-calc(56); }
+  }
+
+
+  // navy notch crossing into the footer (only the triangle below the seam shows)
+  &__deco {
+    position: absolute;
+    z-index: 1;
+    bottom: rem-calc(-31);
+    left: calc(50% + #{rem-calc(176)});
+    width: rem-calc(35);
+    height: rem-calc(31);
+    background: $navy-panel;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  @include breakpoint(medium down) {
+    &__head { flex-direction: column; align-items: flex-start; }
+    &__deco { display: none; }
+  }
+}

@@ -1,0 +1,47 @@
+// ============================================================
+// Design tokens extracted from ABMA_Homepage.psd
+// ============================================================
+
+@function rem-calc($px) {
+  @return ($px / 16) * 1rem;
+}
+
+// minimal Foundation-flavoured breakpoint mixin
+@mixin breakpoint($query) {
+  $q: inspect($query);
+  @if $q == 'small down' {
+    @media (max-width: 639px) { @content; }
+  } @else if $q == 'medium down' {
+    @media (max-width: 1023px) { @content; }
+  } @else if $q == 'large down' {
+    @media (max-width: 1459px) { @content; }
+  } @else if $q == 'medium' {
+    @media (min-width: 640px) { @content; }
+  } @else if $q == 'large' {
+    @media (min-width: 1024px) { @content; }
+  }
+}
+
+$yellow:        #FAAC1B;   // brand yellow (sections, accents)
+$yellow-banner: #F7AB1B;   // header band / dropdown panel
+$navy:          #1E3160;   // primary navy text
+$navy-dark:     #1D2140;   // utility text, subscribe bar
+$navy-bg:       #1B2140;   // card/news section backgrounds, buttons
+$navy-panel:    #1C203F;   // active-members background
+$lavender:      #D2D8E8;   // pale blue copy
+$white:         #FFFFFF;
+
+$main-color: $yellow-banner;
+$sub-color:  $navy;
+
+$font-body:    'Poppins', sans-serif;
+$font-display: 'Europa Grotesk SH', 'Archivo', 'Arial Black', sans-serif;
+$font-small:   'Inter', 'Poppins', sans-serif;
+
+// content columns measured on the 1920px artboard
+$container:         rem-calc(948);    // regular column (502..1418) + padding
+$container-header:  rem-calc(1123);   // header column (415..1506) + padding
+$container-cards:   rem-calc(1226);   // cards grid (363..1557) + padding
+$container-join:    rem-calc(1006);   // join content (475..1449) + padding
+$container-news:    rem-calc(1140);   // news card + side title (406..1514) + padding
+$container-members: rem-calc(983);    // members content (485..1436) + padding

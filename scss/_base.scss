@@ -1,0 +1,104 @@
+// ============================================================
+// Base / shared components
+// ============================================================
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: $font-body;
+  font-size: rem-calc(16);
+  color: $navy;
+  background: $white;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; }
+a { text-decoration: none; }
+ul { list-style: none; }
+
+.grid-container {
+  max-width: $container;
+  margin: 0 auto;
+  padding: 0 rem-calc(16);
+
+  &--header  { max-width: $container-header; }
+  &--cards   { max-width: $container-cards; }
+  &--join    { max-width: $container-join; }
+  &--news    { max-width: $container-news; padding-left: rem-calc(17); }
+  &--members { max-width: $container-members; }
+}
+
+// visually hidden text (screen readers) — naming per site convention
+.css-clip {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+// display headings (Europa Grotesk SH in the mockup; Archivo fallback)
+.section-title {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: rem-calc(45);
+  line-height: rem-calc(46);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+// title underline with the small speech-tail notch
+.title-tail {
+  display: block;
+  position: relative;
+  border-bottom: rem-calc(3) solid currentColor;
+  margin-top: rem-calc(18);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 19%;
+    border: rem-calc(6) solid transparent;
+    border-top: rem-calc(7) solid currentColor;
+    border-bottom-width: 0;
+  }
+}
+
+// solid navy button (Learn More)
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem-calc(173);
+  height: rem-calc(46);
+  background: $navy-bg;
+  color: $white;
+  font-size: rem-calc(14);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+// circled arrow used on cards / news teaser
+.circle-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem-calc(20);
+  height: rem-calc(20);
+  border-radius: 50%;
+  border: rem-calc(1.5) solid currentColor;
+  font-size: 0;
+
+  svg {
+    width: rem-calc(9);
+    height: rem-calc(9);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

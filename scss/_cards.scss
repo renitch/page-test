@@ -1,0 +1,72 @@
+// ============================================================
+// Quick-link cards + association intro paragraph
+// ============================================================
+
+.cards {
+  background: $navy-bg;
+  padding-bottom: rem-calc(86);
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    transform: translateY(rem-calc(-74));
+    margin-bottom: rem-calc(-75);
+  }
+}
+
+.card {
+  position: relative;
+  width: rem-calc(398);
+  height: rem-calc(265);
+  color: $white;
+  background-color: $navy-bg;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: rem-calc(48) rem-calc(56) rem-calc(26);
+  text-align: right;
+
+  // brick offset for the second row
+  &:nth-child(4) { margin-left: rem-calc(198); }
+
+  &__title {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: rem-calc(22);
+    line-height: rem-calc(21);
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: inherit;
+  }
+
+  .circle-arrow { margin: rem-calc(8) 0 auto; }
+
+  &__text {
+    font-size: rem-calc(16);
+    line-height: rem-calc(21);
+  }
+
+  @include breakpoint(medium down) {
+    width: 50%;
+    &:nth-child(4) { margin-left: 0; }
+  }
+  @include breakpoint(small down) {
+    width: 100%;
+    height: auto;
+    min-height: rem-calc(220);
+  }
+}
+
+.cards__about {
+  margin: rem-calc(65) auto 0;
+  max-width: rem-calc(1172);
+  padding: 0 rem-calc(16);
+  font-size: rem-calc(20);
+  line-height: rem-calc(32);
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: $lavender;
+}

@@ -1,0 +1,107 @@
+// ============================================================
+// Hero — city panorama, display title, floating CTA bubble
+// ============================================================
+
+.hero {
+  position: relative;
+  height: rem-calc(719);
+  overflow: hidden;
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    position: absolute;
+    top: rem-calc(172);
+    left: calc(50% - #{rem-calc(181)});
+    color: $white;
+    font-family: $font-display;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+
+    span { display: block; }
+
+    &-line1 { font-size: rem-calc(65); line-height: rem-calc(53); }
+    &-line2 { font-size: rem-calc(70); line-height: rem-calc(60); }
+  }
+
+  @include breakpoint(medium down) {
+    height: rem-calc(420);
+
+    &__title {
+      top: rem-calc(60);
+      left: rem-calc(24);
+      padding-top: rem-calc(40);
+
+      &-line1 { font-size: rem-calc(42); line-height: rem-calc(38); }
+      &-line2 { font-size: rem-calc(46); line-height: rem-calc(42); }
+    }
+  }
+}
+
+// ---- floating "Click Here" speech bubble ----
+.hero__bubble {
+  position: absolute;
+  top: rem-calc(191);
+  left: calc(50% + #{rem-calc(499)});
+  width: rem-calc(257);
+  background: $yellow;
+  color: #000;
+  text-align: center;
+  padding: rem-calc(21) rem-calc(20) rem-calc(24);
+  filter: drop-shadow(0 rem-calc(14) rem-calc(28) rgba(10, 16, 40, 0.35));
+
+  // speech tail, bottom left
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: rem-calc(38);
+    border: rem-calc(17) solid transparent;
+    border-top: rem-calc(38) solid $yellow;
+    border-right-width: 0;
+  }
+
+  &-click {
+    display: block;
+    font-size: rem-calc(38);
+    line-height: rem-calc(40);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  &-sub {
+    display: block;
+    font-size: rem-calc(11);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: rem-calc(3);
+    padding-bottom: rem-calc(2);
+    margin-bottom: rem-calc(12);
+    border-bottom: rem-calc(2) solid rgba(0, 0, 0, 0.85);
+  }
+
+  &-event {
+    display: block;
+    font-family: $font-body;
+    font-size: rem-calc(29);
+    line-height: rem-calc(38);
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    color: $navy-dark;
+  }
+
+  @include breakpoint(large down) {
+    left: auto;
+    right: rem-calc(20);
+  }
+  @include breakpoint(medium down) { display: none; }
+}

@@ -1,0 +1,69 @@
+// ============================================================
+// Footer — yellow band
+// ============================================================
+
+.footer {
+  position: relative;
+  background: $yellow;
+  color: $navy;
+  padding: rem-calc(52) 0 rem-calc(48);
+
+  a { color: inherit; }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: rem-calc(23);
+    align-items: start;
+  }
+
+  .logo img { width: rem-calc(226); }
+
+  &__block {
+    text-align: right;
+    font-size: rem-calc(14);
+    line-height: rem-calc(20);
+
+    h3 {
+      font-size: rem-calc(16);
+      line-height: rem-calc(22);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+
+  &__org {
+    align-self: end;
+    font-size: rem-calc(14);
+    line-height: rem-calc(20);
+  }
+
+  &__socialrow {
+    grid-column: 2;
+    justify-self: end;
+    margin-top: rem-calc(-18);
+  }
+
+  .stay-tuned { gap: rem-calc(18); }
+  .stay-tuned__link { color: $navy; font-size: rem-calc(21); }
+
+  &__divider {
+    border: 0;
+    border-top: rem-calc(2) solid rgba($navy, 0.2);
+    margin: rem-calc(28) 0 rem-calc(24);
+  }
+
+  &__legal {
+    display: flex;
+    justify-content: space-between;
+    font-family: $font-small;
+    font-size: rem-calc(12);
+    letter-spacing: 0.02em;
+  }
+
+  @include breakpoint(medium down) {
+    &__grid { grid-template-columns: 1fr; }
+    &__block, &__socialrow { text-align: left; justify-self: start; grid-column: auto; }
+    &__legal { flex-direction: column; gap: rem-calc(8); }
+  }
+}

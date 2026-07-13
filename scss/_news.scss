@@ -1,0 +1,130 @@
+// ============================================================
+// The Latest News — feature card straddling the join/board seam
+// ============================================================
+
+.news {
+  .grid-container {
+    display: flex;
+    align-items: flex-start;
+    gap: rem-calc(24);
+    transform: translateY(rem-calc(-276));
+    margin-bottom: rem-calc(-276);
+  }
+}
+
+.news__card {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  width: rem-calc(928);
+  height: rem-calc(403);
+  background: $navy-bg;
+  color: $white;
+
+  &-photo {
+    width: rem-calc(546);
+    object-fit: cover;
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+
+  &-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding: rem-calc(30) rem-calc(45) rem-calc(28) rem-calc(4);
+  }
+
+  &-headline {
+    font-size: rem-calc(24);
+    line-height: rem-calc(28);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $lavender;
+  }
+
+  &-text {
+    margin-top: rem-calc(24);
+    font-size: rem-calc(16);
+    line-height: rem-calc(24);
+  }
+
+  &-nav {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: rem-calc(18);
+    font-size: rem-calc(16);
+    letter-spacing: -0.02em;
+
+    a { color: inherit; display: inline-flex; align-items: center; gap: rem-calc(13); }
+
+    .circle-arrow { color: $yellow; }
+  }
+
+  &-arrows {
+    display: flex;
+    gap: rem-calc(28);
+    margin-right: rem-calc(52);
+
+    a {
+      color: rgba($white, 0.85);
+      font-size: rem-calc(14);
+      line-height: 1;
+    }
+  }
+
+  // slider dots, bottom-left of the card
+  &-dots {
+    position: absolute;
+    left: rem-calc(179);
+    bottom: rem-calc(30);
+    display: flex;
+    gap: rem-calc(9);
+
+    span {
+      width: rem-calc(15);
+      height: rem-calc(15);
+      border-radius: 50%;
+      background: $white;
+      opacity: 0.38;
+
+      &.is-active { opacity: 1; }
+    }
+  }
+
+  @include breakpoint(medium down) {
+    flex-direction: column;
+    width: 100%;
+
+    &-photo { width: 100%; max-height: rem-calc(300); }
+    &-dots { left: rem-calc(24); }
+  }
+}
+
+.news__aside {
+  color: $navy;
+
+  .section-title span { display: block; line-height: rem-calc(39); }
+  .news__aside-big { font-size: rem-calc(55); line-height: rem-calc(40); }
+
+  .title-tail {
+    width: rem-calc(154);
+    margin-top: rem-calc(21);
+
+    &::after { right: 36%; }
+  }
+
+  @include breakpoint(medium down) { color: $white; }
+}
+
+@include breakpoint(medium down) {
+  .news .grid-container {
+    flex-direction: column;
+    transform: none;
+    margin-bottom: 0;
+    padding-top: rem-calc(40);
+  }
+}

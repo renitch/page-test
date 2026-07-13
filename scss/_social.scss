@@ -1,0 +1,70 @@
+// ============================================================
+// Follow us on Social Media — lavender feed card
+// ============================================================
+
+.social {
+  position: relative;
+  z-index: 2;
+  transform: translateY(rem-calc(-223));
+  margin-bottom: rem-calc(-223);
+
+  &__card {
+    position: relative;
+    max-width: rem-calc(887);
+    margin: 0 auto;
+    background: $lavender;
+    padding: rem-calc(38) rem-calc(58) rem-calc(43);
+    box-shadow: 0 rem-calc(18) rem-calc(44) rgba(10, 16, 40, 0.3);
+  }
+
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: rem-calc(20);
+  }
+
+  &__title {
+    font-size: rem-calc(34);
+    line-height: 1;
+    color: $navy;
+  }
+
+  // thin rule running from under "social media" to the card edge
+  &__rule {
+    position: absolute;
+    top: rem-calc(82);
+    left: rem-calc(299);
+    right: 0;
+    border-bottom: rem-calc(3) solid $navy;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: rem-calc(120);
+      border: rem-calc(12) solid transparent;
+      border-top: rem-calc(14) solid $navy;
+      border-bottom-width: 0;
+    }
+  }
+
+  .stay-tuned { gap: rem-calc(20); }
+  .stay-tuned__link { color: $navy; font-size: rem-calc(20); }
+
+  &__pics {
+    display: flex;
+    margin-top: rem-calc(41);
+
+    img { display: block; width: 25%; object-fit: cover; }
+  }
+
+  @include breakpoint(medium down) {
+    transform: none;
+    margin-bottom: 0;
+
+    &__head { flex-direction: column; align-items: flex-start; }
+    &__rule { display: none; }
+    &__pics { flex-wrap: wrap; img { width: 50%; } }
+  }
+}

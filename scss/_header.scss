@@ -1,0 +1,285 @@
+// ============================================================
+// Header — yellow top band + navy subscribe bar
+// ============================================================
+
+.header {
+  position: relative;
+  z-index: 20;
+}
+
+.header__top {
+  background-color: $main-color;
+  color: $sub-color;
+  height: rem-calc(99);
+
+  a { color: inherit; }
+
+  .grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem-calc(26);
+    height: 100%;
+  }
+
+  // yellow wedge running over the subscribe bar's right end
+  &::after {
+    content: '';
+    position: absolute;
+    top: rem-calc(99);
+    left: calc(50% + #{rem-calc(493)});
+    border-style: solid;
+    border-width: rem-calc(43) rem-calc(50) 0 0;
+    border-color: $main-color transparent transparent transparent;
+
+    @include breakpoint(medium down) { display: none; }
+  }
+}
+
+.logo {
+  h1 { font-size: 0; }
+
+  a { display: inline-block; }
+
+  img {
+    width: rem-calc(160);
+    height: auto;
+    object-fit: contain;
+  }
+
+  @include breakpoint(small down) {
+    max-width: 50%;
+  }
+}
+
+.header__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: rem-calc(10);
+}
+
+.header__utility {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: rem-calc(22);
+  padding-right: rem-calc(258);
+
+  a {
+    font-size: rem-calc(13);
+    color: $navy-dark;
+  }
+
+  .header__donate {
+    font-size: rem-calc(14);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  @include breakpoint(medium down) { padding-right: 0; }
+}
+
+.header__navrow {
+  display: flex;
+  align-items: center;
+  gap: rem-calc(16);
+}
+
+.header__menu {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-top: rem-calc(3) solid $navy;
+  padding-top: rem-calc(8);
+
+  .top-bar { width: 100%; }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu > li {
+    position: relative;
+
+    & + li::before {
+      content: '|';
+      position: absolute;
+      left: rem-calc(-19);
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: rem-calc(12.65);
+      font-weight: 600;
+      color: $navy;
+    }
+  }
+
+  .menu a {
+    display: block;
+    font-size: rem-calc(14);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    padding: rem-calc(4) 0 rem-calc(10);
+  }
+
+  @include breakpoint(medium down) {
+    .menu { flex-wrap: wrap; gap: rem-calc(8) rem-calc(28); }
+    .menu > li + li::before { display: none; }
+  }
+}
+
+// ---- About ABMA dropdown ----
+.menu-item-has-children {
+  > .sub-menu {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: rem-calc(225);
+    padding: rem-calc(14) 0 rem-calc(20);
+    background: $yellow-banner;
+    box-shadow: 0 rem-calc(26) rem-calc(60) rgba(10, 16, 40, 0.5);
+    z-index: 30;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: rem-calc(17) solid transparent;
+      border-top-width: 0;
+      border-bottom: rem-calc(16) solid $yellow-banner;
+    }
+
+    li a {
+      font-size: rem-calc(14);
+      font-weight: 400;
+      letter-spacing: 0;
+      text-align: center;
+      padding: rem-calc(18) 0;
+    }
+
+    li:first-child a {
+      padding-bottom: rem-calc(14);
+      margin: 0 rem-calc(36) rem-calc(4);
+      border-bottom: rem-calc(2) solid $navy;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &:hover > .sub-menu,
+  &:focus-within > .sub-menu {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+// ---- search ----
+.header__search {
+  align-self: flex-start;
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    width: rem-calc(242);
+    height: rem-calc(44);
+    background: rgba($white, 0.25);
+    border-radius: rem-calc(4);
+    padding: 0 rem-calc(12);
+  }
+
+  button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    line-height: 0;
+    padding: 0 rem-calc(6) 0 rem-calc(2);
+
+    svg {
+      width: rem-calc(20);
+      height: rem-calc(21);
+    }
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: none;
+    outline: 0;
+    font-family: $font-body;
+    font-size: rem-calc(12);
+    color: $navy;
+
+    &::placeholder { color: $navy; opacity: 1; }
+  }
+}
+
+// ---- navy subscribe bar (overlaps the hero top) ----
+.header__bottom {
+  position: absolute;
+  top: rem-calc(99);
+  left: 0;
+  width: calc(50% + #{rem-calc(495)});
+  min-height: rem-calc(39);
+  background: $navy-dark;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: rem-calc(26);
+  padding-right: rem-calc(205);
+  z-index: 10;
+
+  a { color: inherit; }
+
+  @include breakpoint(medium down) {
+    position: static;
+    width: 100%;
+    padding: rem-calc(6) rem-calc(16);
+    justify-content: center;
+  }
+}
+
+.header__subscribe {
+  display: flex;
+  align-items: center;
+  gap: rem-calc(20);
+  font-size: rem-calc(13);
+  letter-spacing: -0.025em;
+
+  svg { width: rem-calc(17); height: rem-calc(19); }
+}
+
+.header__follow {
+  display: flex;
+  align-items: center;
+  gap: rem-calc(26);
+  font-size: rem-calc(13);
+  letter-spacing: -0.025em;
+
+  &::before {
+    content: '|';
+    margin-right: rem-calc(26);
+  }
+}
+
+.stay-tuned {
+  display: flex;
+  align-items: center;
+  gap: rem-calc(24);
+
+  &__link {
+    font-size: rem-calc(15);
+    color: $yellow;
+  }
+}
