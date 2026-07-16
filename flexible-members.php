@@ -12,6 +12,14 @@
     $enable_socials   = get_sub_field('enable_socials');
     $members_heading_left   = get_sub_field('members_heading_left');
 
+    $members_category_ids = [];
+
+    if (is_array($members_category)) {
+        $members_category_ids = array_filter(
+            array_map('absint', $members_category)
+        );
+    }
+
     $styles = [];
     $classes = [];
 
@@ -73,32 +81,29 @@
                 </div>
             <?php endif; ?>
             <?php if($members_filter) : ?>
-                <div class="member-filter">
+                <div class="member-filter js-member-filter"
+                     data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>"
+                     data-nonce="<?php echo esc_attr( wp_create_nonce( 'members_filter' ) ); ?>"
+                     data-categories="<?php echo esc_attr( wp_json_encode( array_values( $members_category_ids ) ) ); ?>">
                     <div class="member-filter__item">
                         <label class="member-filter__title" for="by_county"><?php echo __('County', ''); ?></label>
-                        <input class="member-filter__input" type="text" id="by_county" placeholder="">
+                        <input class="member-filter__input js-filter-county" type="text" id="by_county" name="by_county" autocomplete="off" placeholder="">
                     </div>
                     <div class="">
                         <label class="member-filter__title" for="by_name"><?php echo __('Name', ''); ?></label>
-                        <input class="member-filter__input" type="text" id="by_name" placeholder="">
+                        <input class="member-filter__input js-filter-name" type="text" id="by_name" name="by_name" autocomplete="off" placeholder="">
                     </div>
                 </div>
             <?php endif; ?>
         </div>
 
-
+        <?php if($members_filter) : ?>
+            <div class="members members--search-results js-members-results" hidden></div>
+            <div class="js-members-popups" hidden></div>
+            <div class="members-search-empty js-members-empty" hidden><?php echo __('No members found.', ''); ?></div>
+        <?php endif; ?>
 
         <?php
-
-        $members_category = get_sub_field('members_category');
-
-        $members_category_ids = [];
-
-        if (is_array($members_category)) {
-            $members_category_ids = array_filter(
-                array_map('absint', $members_category)
-            );
-        }
 
         $members_args = [
             'post_type'      => 'members',
@@ -129,6 +134,7 @@
         $member_groups = array_chunk( $member_ids, 7 ); ?>
 
         <?php if( $members_query->have_posts() ) : ?>
+            <div class="js-members-default">
             <?php if($members_slider) : ?>
                 <div class="members-slider">
                     <?php foreach ( $member_groups as $member_group ) : ?>
@@ -289,6 +295,7 @@
 
                 <?php wp_reset_postdata(); ?>
             <?php endif; ?>
+            </div>
         <?php endif; ?>
     </div>
 

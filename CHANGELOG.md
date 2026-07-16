@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Live AJAX search filter for the Members flexible block
+  (`flexible-members.php`): filters the `members` post type by post title
+  (Name input) and the ACF field `member_city` (County input), scoped to the
+  block's selected `members_cat` categories and secured with a nonce.
+- `inc/members-filter-ajax.php` — `wp_ajax_(nopriv_)members_filter` handler
+  with a title-only `LIKE` search (custom `posts_where` via the
+  `members_title_like` query var), `member_city` meta `LIKE` query, and
+  card/popup renderers matching the block's grid markup. Include it from the
+  theme's `functions.php`.
+- `assets/js/members-filter.js` — debounced (350 ms) fetch-based live search
+  with request aborting, an empty-results message, and restore of the default
+  slider/grid when both inputs are cleared.
+
 ### Changed
 - Rebuilt the page as code instead of baked artwork strips, following the BEM /
   SCSS conventions of `examples/header.txt` and `examples/header css.txt`:
