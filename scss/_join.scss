@@ -38,11 +38,11 @@
     &-line1 { display: block; font-size: rem-calc(77); line-height: rem-calc(64); }
     &-line2 { display: block; font-size: rem-calc(45); line-height: rem-calc(50); }
 
-    .title-tail {
-      width: rem-calc(318);
-      margin-top: rem-calc(22);
-
-      &::after { right: 80%; }
+    &.section-title--tail {
+      --tail-width: #{rem-calc(318)};
+      --tail-offset: #{rem-calc(22)};
+      --tail-notch-x: #{rem-calc(208)};
+      --tail-notch: #{rem-calc(22)};
     }
   }
 

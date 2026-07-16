@@ -48,21 +48,51 @@ ul { list-style: none; }
   text-transform: uppercase;
 }
 
-// title underline with the small speech-tail notch
-.title-tail {
-  display: block;
+// title underline with the small speech-tail notch, drawn with pseudo-elements
+// only: ::after is the interrupted line (two segments) in normal flow below the
+// heading text; ::before hangs the notch — its vertical left edge plus the 45°
+// diagonal climbing back up to where the line resumes. Geometry is tuned per
+// section through the --tail-* custom properties.
+.section-title--tail {
   position: relative;
-  border-bottom: rem-calc(3) solid currentColor;
-  margin-top: rem-calc(18);
+
+  --tail-width: 100%;               // line length
+  --tail-offset: #{rem-calc(18)};   // space between text and line
+  --tail-notch-x: #{rem-calc(198)}; // notch left edge along the line
+  --tail-notch: #{rem-calc(17)};    // notch opening width (= its depth: 45° tail)
+  --tail-left: 0px;                 // line left edge offset inside the heading
 
   &::after {
     content: '';
+    display: block;
+    width: var(--tail-width);
+    height: rem-calc(3);
+    margin-top: var(--tail-offset);
+    background:
+      linear-gradient(currentColor, currentColor)
+        0 0 / var(--tail-notch-x) rem-calc(3) no-repeat,
+      linear-gradient(currentColor, currentColor)
+        100% 0 / calc(100% - var(--tail-notch-x) - var(--tail-notch)) rem-calc(3) no-repeat;
+  }
+
+  &::before {
+    content: '';
     position: absolute;
-    top: 100%;
-    right: 19%;
-    border: rem-calc(6) solid transparent;
-    border-top: rem-calc(7) solid currentColor;
-    border-bottom-width: 0;
+    top: calc(100% - #{rem-calc(3)});
+    left: calc(var(--tail-left) + var(--tail-notch-x));
+    width: var(--tail-notch);
+    height: var(--tail-notch); // square box: the diagonal runs corner-to-corner at 45°
+    background:
+      linear-gradient(currentColor, currentColor)
+        0 0 / #{rem-calc(3)} 100% no-repeat,
+      // gradient color bands run perpendicular to the axis, so a "to top left"
+      // axis paints the bottom-left -> top-right diagonal stroke
+      linear-gradient(to top left,
+        transparent calc(50% - #{rem-calc(2)}),
+        currentColor calc(50% - #{rem-calc(2)}),
+        currentColor calc(50% + #{rem-calc(2)}),
+        transparent calc(50% + #{rem-calc(2)}))
+        0 0 / 100% 100% no-repeat;
   }
 }
 

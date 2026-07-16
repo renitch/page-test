@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Title underlines rebuilt with pseudo-elements only (`.section-title--tail`
+  in `_base.scss`): `::after` draws the interrupted 3px line as two
+  background-gradient segments in flow, `::before` hangs the notch — its
+  vertical left edge plus a 45° corner-to-corner gradient diagonal — below
+  the gap. The `<span class="title-tail">` elements (join, news, board,
+  members) and `<span class="social__rule">` are removed from the markup;
+  per-section geometry moved to `--tail-*` custom properties.
+
+### Fixed
+- Notch shape and placement now match the PSD (verified by headless-Chromium
+  screenshot diffing against `reference.png`): the tail is the mockup's
+  hollow speech-tail (vertical drop + diagonal return) instead of a solid
+  triangle; the join notch moved from 20% to 65% along the line (208px of
+  318px, per the PSD at y=1791); members/board/social notch positions
+  re-measured from the PSD; the social rule now stops at 224px like the
+  mockup instead of running to the card edge.
+
 ### Added
 - Live AJAX search filter for the Members flexible block
   (`flexible-members.php`): filters the `members` post type by post title

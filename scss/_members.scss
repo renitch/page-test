@@ -19,12 +19,10 @@
   &__title {
     span { display: block; }
 
-    .title-tail {
-      width: rem-calc(200);
-      margin-top: rem-calc(8);
-      color: $white;
-
-      &::after { right: 44%; }
+    &.section-title--tail {
+      --tail-width: #{rem-calc(200)};
+      --tail-offset: #{rem-calc(8)};
+      --tail-notch-x: #{rem-calc(109)};
     }
   }
 

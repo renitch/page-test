@@ -28,24 +28,23 @@
     font-size: rem-calc(34);
     line-height: 1;
     color: $navy;
-  }
 
-  // thin rule running from under "social media" to the card edge
-  &__rule {
-    position: absolute;
-    top: rem-calc(82);
-    left: rem-calc(299);
-    right: 0;
-    border-bottom: rem-calc(3) solid $navy;
+    // notched rule under "social media" (PSD: 224px long, notch at 122px);
+    // kept absolute so it adds no height to the flex head row
+    &.section-title--tail {
+      --tail-width: #{rem-calc(224)};
+      --tail-notch-x: #{rem-calc(122)};
+      --tail-notch: #{rem-calc(20)};
+      --tail-left: #{rem-calc(241)};
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: rem-calc(120);
-      border: rem-calc(12) solid transparent;
-      border-top: rem-calc(14) solid $navy;
-      border-bottom-width: 0;
+      &::after {
+        position: absolute;
+        top: rem-calc(44);
+        left: rem-calc(241);
+        margin-top: 0;
+      }
+
+      &::before { top: rem-calc(44); }
     }
   }
 
@@ -64,7 +63,7 @@
     margin-bottom: 0;
 
     &__head { flex-direction: column; align-items: flex-start; }
-    &__rule { display: none; }
+    &__title::before, &__title::after { display: none; }
     &__pics { flex-wrap: wrap; img { width: 50%; } }
   }
 }

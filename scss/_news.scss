@@ -110,11 +110,11 @@
   .section-title span { display: block; line-height: rem-calc(39); }
   .news__aside-big { font-size: rem-calc(55); line-height: rem-calc(40); }
 
-  .title-tail {
-    width: rem-calc(154);
-    margin-top: rem-calc(21);
-
-    &::after { right: 36%; }
+  .section-title--tail {
+    --tail-width: #{rem-calc(154)};
+    --tail-offset: #{rem-calc(21)};
+    --tail-notch-x: #{rem-calc(87)};
+    --tail-notch: #{rem-calc(12)};
   }
 
   @include breakpoint(medium down) { color: $white; }

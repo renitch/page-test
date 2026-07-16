@@ -28,9 +28,13 @@
 
     span { display: block; }
 
-    .title-tail {
-      width: rem-calc(393);
-      margin: rem-calc(16) auto 0;
+    &.section-title--tail {
+      --tail-width: #{rem-calc(393)};
+      --tail-offset: #{rem-calc(16)};
+      --tail-notch-x: #{rem-calc(304)};
+      --tail-left: calc(50% - #{rem-calc(196.5)});
+
+      &::after { margin-left: auto; margin-right: auto; }
     }
   }
 
