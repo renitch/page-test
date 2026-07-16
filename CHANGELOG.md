@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   the gap. The `<span class="title-tail">` elements (join, news, board,
   members) and `<span class="social__rule">` are removed from the markup;
   per-section geometry moved to `--tail-*` custom properties.
+- Underline made length-agnostic: the notch position is a fraction of the
+  line (`--tail-pos`, default 0.55 as measured in the PSD) applied through
+  percentage background sizes and a `calc()` length×number product, so the
+  tail works on any line width with no per-width pixel tuning; only join
+  (0.65) and board (0.775) override the fraction.
 
 ### Fixed
 - Notch shape and placement now match the PSD (verified by headless-Chromium

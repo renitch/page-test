@@ -41,7 +41,7 @@
     &.section-title--tail {
       --tail-width: #{rem-calc(318)};
       --tail-offset: #{rem-calc(22)};
-      --tail-notch-x: #{rem-calc(208)};
+      --tail-pos: 0.65;
       --tail-notch: #{rem-calc(22)};
     }
   }

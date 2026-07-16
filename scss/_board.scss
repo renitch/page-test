@@ -31,7 +31,7 @@
     &.section-title--tail {
       --tail-width: #{rem-calc(393)};
       --tail-offset: #{rem-calc(16)};
-      --tail-notch-x: #{rem-calc(304)};
+      --tail-pos: 0.775;
       --tail-left: calc(50% - #{rem-calc(196.5)});
 
       &::after { margin-left: auto; margin-right: auto; }

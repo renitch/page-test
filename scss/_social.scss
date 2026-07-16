@@ -33,7 +33,6 @@
     // kept absolute so it adds no height to the flex head row
     &.section-title--tail {
       --tail-width: #{rem-calc(224)};
-      --tail-notch-x: #{rem-calc(122)};
       --tail-notch: #{rem-calc(20)};
       --tail-left: #{rem-calc(241)};
 

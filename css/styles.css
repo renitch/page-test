@@ -75,7 +75,7 @@ ul {
   position: relative;
   --tail-width: 100%;
   --tail-offset: 1.125rem;
-  --tail-notch-x: 12.375rem;
+  --tail-pos: 0.55;
   --tail-notch: 1.0625rem;
   --tail-left: 0px;
 }
@@ -86,14 +86,14 @@ ul {
   width: var(--tail-width);
   height: 0.1875rem;
   margin-top: var(--tail-offset);
-  background: linear-gradient(currentColor, currentColor) 0 0/var(--tail-notch-x) 0.1875rem no-repeat, linear-gradient(currentColor, currentColor) 100% 0/calc(100% - var(--tail-notch-x) - var(--tail-notch)) 0.1875rem no-repeat;
+  background: linear-gradient(currentColor, currentColor) 0 0/calc(var(--tail-pos) * 100%) 0.1875rem no-repeat, linear-gradient(currentColor, currentColor) 100% 0/calc((1 - var(--tail-pos)) * 100% - var(--tail-notch)) 0.1875rem no-repeat;
 }
 
 .section-title--tail::before {
   content: '';
   position: absolute;
   top: calc(100% - 0.1875rem);
-  left: calc(var(--tail-left) + var(--tail-notch-x));
+  left: calc(var(--tail-left) + var(--tail-pos) * var(--tail-width));
   width: var(--tail-notch);
   height: var(--tail-notch);
   background: linear-gradient(currentColor, currentColor) 0 0 / 0.1875rem 100% no-repeat, linear-gradient(to top left, transparent calc(50% - 0.125rem), currentColor calc(50% - 0.125rem), currentColor calc(50% + 0.125rem), transparent calc(50% + 0.125rem)) 0 0/100% 100% no-repeat;
@@ -691,7 +691,7 @@ ul {
 .join__title.section-title--tail {
   --tail-width: 19.875rem;
   --tail-offset: 1.375rem;
-  --tail-notch-x: 13rem;
+  --tail-pos: 0.65;
   --tail-notch: 1.375rem;
 }
 
@@ -863,7 +863,6 @@ ul {
 .news__aside .section-title--tail {
   --tail-width: 9.625rem;
   --tail-offset: 1.3125rem;
-  --tail-notch-x: 5.4375rem;
   --tail-notch: 0.75rem;
 }
 
@@ -912,7 +911,7 @@ ul {
 .board__title.section-title--tail {
   --tail-width: 24.5625rem;
   --tail-offset: 1rem;
-  --tail-notch-x: 19rem;
+  --tail-pos: 0.775;
   --tail-left: calc(50% - 12.28125rem);
 }
 
@@ -1018,7 +1017,6 @@ ul {
 
 .social__title.section-title--tail {
   --tail-width: 14rem;
-  --tail-notch-x: 7.625rem;
   --tail-notch: 1.25rem;
   --tail-left: 15.0625rem;
 }
@@ -1096,7 +1094,6 @@ ul {
 .members__title.section-title--tail {
   --tail-width: 12.5rem;
   --tail-offset: 0.5rem;
-  --tail-notch-x: 6.8125rem;
 }
 
 .members__filters {

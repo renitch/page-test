@@ -56,11 +56,11 @@ ul { list-style: none; }
 .section-title--tail {
   position: relative;
 
-  --tail-width: 100%;               // line length
-  --tail-offset: #{rem-calc(18)};   // space between text and line
-  --tail-notch-x: #{rem-calc(198)}; // notch left edge along the line
-  --tail-notch: #{rem-calc(17)};    // notch opening width (= its depth: 45° tail)
-  --tail-left: 0px;                 // line left edge offset inside the heading
+  --tail-width: 100%;             // line length — any length works
+  --tail-offset: #{rem-calc(18)}; // space between text and line
+  --tail-pos: 0.55;               // notch left edge as a fraction of the line length
+  --tail-notch: #{rem-calc(17)};  // notch opening width (= its depth: 45° tail)
+  --tail-left: 0px;               // line left edge offset inside the heading
 
   &::after {
     content: '';
@@ -68,18 +68,20 @@ ul { list-style: none; }
     width: var(--tail-width);
     height: rem-calc(3);
     margin-top: var(--tail-offset);
+    // segment sizes are percentages of the line's own box, so the notch
+    // lands at --tail-pos for any line length
     background:
       linear-gradient(currentColor, currentColor)
-        0 0 / var(--tail-notch-x) rem-calc(3) no-repeat,
+        0 0 / calc(var(--tail-pos) * 100%) rem-calc(3) no-repeat,
       linear-gradient(currentColor, currentColor)
-        100% 0 / calc(100% - var(--tail-notch-x) - var(--tail-notch)) rem-calc(3) no-repeat;
+        100% 0 / calc((1 - var(--tail-pos)) * 100% - var(--tail-notch)) rem-calc(3) no-repeat;
   }
 
   &::before {
     content: '';
     position: absolute;
     top: calc(100% - #{rem-calc(3)});
-    left: calc(var(--tail-left) + var(--tail-notch-x));
+    left: calc(var(--tail-left) + var(--tail-pos) * var(--tail-width));
     width: var(--tail-notch);
     height: var(--tail-notch); // square box: the diagonal runs corner-to-corner at 45°
     background:
