@@ -19,11 +19,13 @@ const MEMBERS_FILTER_ACTION = 'members_filter';
  * Enqueue the front-end filter script.
  */
 function members_filter_enqueue_assets() {
+    $script_path = get_stylesheet_directory() . '/assets/js/members-filter.js';
+
     wp_enqueue_script(
         'members-filter',
         get_stylesheet_directory_uri() . '/assets/js/members-filter.js',
         [],
-        '1.0.0',
+        file_exists( $script_path ) ? (string) filemtime( $script_path ) : '1.0.0',
         true
     );
 }

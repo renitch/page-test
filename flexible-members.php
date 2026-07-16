@@ -99,7 +99,6 @@
 
         <?php if($members_filter) : ?>
             <div class="members members--search-results js-members-results" hidden></div>
-            <div class="js-members-popups" hidden></div>
             <div class="members-search-empty js-members-empty" hidden><?php echo __('No members found.', ''); ?></div>
         <?php endif; ?>
 

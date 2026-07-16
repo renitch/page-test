@@ -6,6 +6,13 @@
  * is active the default slider/grid is hidden and results render into
  * the `.js-members-results` container; clearing both inputs restores
  * the original output without a request.
+ *
+ * Popups for AJAX-inserted cards are handled here too: the theme's popup
+ * script binds its handlers on page load, so dynamically inserted cards
+ * never receive them. Popup nodes are inserted as direct children of the
+ * block's `.grid-container` — the same DOM level the theme renders its own
+ * popups at — and tagged with `js-ajax-popup` so they can be cleaned up on
+ * every re-render.
  */
 (function () {
     'use strict';
@@ -23,13 +30,14 @@
 
     var section = filter.closest('.members-section');
     var results = section ? section.querySelector('.js-members-results') : null;
-    var popups = section ? section.querySelector('.js-members-popups') : null;
     var emptyMsg = section ? section.querySelector('.js-members-empty') : null;
     var defaults = section ? section.querySelector('.js-members-default') : null;
 
-    if (!results || !popups) {
+    if (!results) {
         return;
     }
+
+    var popupParent = results.parentNode;
 
     var ajaxUrl = filter.getAttribute('data-ajax-url');
     var nonce = filter.getAttribute('data-nonce');
@@ -46,6 +54,26 @@
         return countyInput ? countyInput.value.trim() : '';
     }
 
+    function clearAjaxPopups() {
+        var stale = section.querySelectorAll('.member-popup.js-ajax-popup');
+
+        Array.prototype.forEach.call(stale, function (node) {
+            node.parentNode.removeChild(node);
+        });
+    }
+
+    function insertAjaxPopups(html) {
+        var holder = document.createElement('div');
+        holder.innerHTML = html || '';
+
+        var popups = holder.querySelectorAll('.member-popup');
+
+        Array.prototype.forEach.call(popups, function (node) {
+            node.classList.add('js-ajax-popup');
+            popupParent.appendChild(node);
+        });
+    }
+
     function showDefault() {
         if (defaults) {
             defaults.hidden = false;
@@ -53,7 +81,7 @@
 
         results.hidden = true;
         results.innerHTML = '';
-        popups.innerHTML = '';
+        clearAjaxPopups();
 
         if (emptyMsg) {
             emptyMsg.hidden = true;
@@ -66,9 +94,10 @@
         }
 
         results.innerHTML = data.cards || '';
-        popups.innerHTML = data.popups || '';
-        popups.hidden = false;
         results.hidden = data.count === 0;
+
+        clearAjaxPopups();
+        insertAjaxPopups(data.popups);
 
         if (emptyMsg) {
             emptyMsg.hidden = data.count !== 0;
@@ -144,23 +173,30 @@
         }, DEBOUNCE_MS);
     }
 
-    /**
-     * Popup handling for AJAX-inserted members.
-     *
-     * The theme's popup script binds its handlers on page load, so cards
-     * rendered by this filter never get them. Delegated handlers below are
-     * scoped to the AJAX containers only, so the default (server-rendered)
-     * content keeps being handled by the theme script exclusively.
-     */
-    function findResultPopup(memberId) {
-        return popups.querySelector('.member-popup[data-popup="' + memberId + '"]');
+    function closeAjaxPopup(popup) {
+        popup.classList.remove('active');
+
+        var member = results.querySelector('.member[data-member="' + popup.getAttribute('data-popup') + '"]');
+
+        if (member) {
+            member.classList.remove('active');
+        }
     }
 
+    /*
+     * Capture phase, so no stopPropagation() in other scripts can prevent
+     * these from running. Scoped to AJAX-inserted nodes only — the default
+     * (server-rendered) content stays exclusively theme-handled.
+     */
     document.addEventListener('click', function (event) {
+        if (!(event.target instanceof Element)) {
+            return;
+        }
+
         var member = event.target.closest('.member');
 
         if (member && results.contains(member)) {
-            var popup = findResultPopup(member.getAttribute('data-member'));
+            var popup = section.querySelector('.member-popup.js-ajax-popup[data-popup="' + member.getAttribute('data-member') + '"]');
 
             if (popup) {
                 popup.classList.add('active');
@@ -170,36 +206,24 @@
             return;
         }
 
-        var openPopup = event.target.closest('.member-popup');
+        var openPopup = event.target.closest('.member-popup.js-ajax-popup');
 
-        if (openPopup && popups.contains(openPopup) && event.target.closest('svg')) {
-            openPopup.classList.remove('active');
-
-            var openMember = results.querySelector('.member[data-member="' + openPopup.getAttribute('data-popup') + '"]');
-
-            if (openMember) {
-                openMember.classList.remove('active');
-            }
+        if (openPopup && event.target.closest('svg')) {
+            closeAjaxPopup(openPopup);
         }
-    });
+    }, true);
 
     document.addEventListener('keydown', function (event) {
         if (event.key !== 'Escape') {
             return;
         }
 
-        var activePopup = popups.querySelector('.member-popup.active');
+        var activePopup = section.querySelector('.member-popup.js-ajax-popup.active');
 
         if (activePopup) {
-            activePopup.classList.remove('active');
-
-            var activeMember = results.querySelector('.member.active');
-
-            if (activeMember) {
-                activeMember.classList.remove('active');
-            }
+            closeAjaxPopup(activePopup);
         }
-    });
+    }, true);
 
     if (nameInput) {
         nameInput.addEventListener('input', onInput);

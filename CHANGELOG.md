@@ -28,6 +28,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   results container — clicking a card adds `active` to its matching
   `.member-popup` (and the card), the close icon or Escape removes it —
   without touching the theme-handled default content.
+- Popup delegation still not firing after the first fix: the enqueued script
+  version was a constant `1.0.0`, so browsers kept serving the cached first
+  build of `members-filter.js`; the version is now `filemtime()`-based so
+  every change busts the cache. AJAX popups are also no longer wrapped in a
+  helper `<div>` — they are inserted as direct children of the block's
+  `.grid-container` (the same DOM level as theme-rendered popups, tagged
+  `js-ajax-popup`), so positional CSS selectors match, and the delegated
+  listeners now run in capture phase so a `stopPropagation()` in another
+  script cannot swallow the click.
 
 ### Changed
 - Rebuilt the page as code instead of baked artwork strips, following the BEM /
