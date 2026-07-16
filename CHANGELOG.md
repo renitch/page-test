@@ -21,6 +21,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   with request aborting, an empty-results message, and restore of the default
   slider/grid when both inputs are cleared.
 
+### Fixed
+- Member popups not opening for AJAX-inserted search results: the theme's
+  popup script binds handlers on page load, so filtered cards never received
+  them. `members-filter.js` now delegates clicks for members inside the AJAX
+  results container — clicking a card adds `active` to its matching
+  `.member-popup` (and the card), the close icon or Escape removes it —
+  without touching the theme-handled default content.
+
 ### Changed
 - Rebuilt the page as code instead of baked artwork strips, following the BEM /
   SCSS conventions of `examples/header.txt` and `examples/header css.txt`:

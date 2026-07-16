@@ -144,6 +144,63 @@
         }, DEBOUNCE_MS);
     }
 
+    /**
+     * Popup handling for AJAX-inserted members.
+     *
+     * The theme's popup script binds its handlers on page load, so cards
+     * rendered by this filter never get them. Delegated handlers below are
+     * scoped to the AJAX containers only, so the default (server-rendered)
+     * content keeps being handled by the theme script exclusively.
+     */
+    function findResultPopup(memberId) {
+        return popups.querySelector('.member-popup[data-popup="' + memberId + '"]');
+    }
+
+    document.addEventListener('click', function (event) {
+        var member = event.target.closest('.member');
+
+        if (member && results.contains(member)) {
+            var popup = findResultPopup(member.getAttribute('data-member'));
+
+            if (popup) {
+                popup.classList.add('active');
+                member.classList.add('active');
+            }
+
+            return;
+        }
+
+        var openPopup = event.target.closest('.member-popup');
+
+        if (openPopup && popups.contains(openPopup) && event.target.closest('svg')) {
+            openPopup.classList.remove('active');
+
+            var openMember = results.querySelector('.member[data-member="' + openPopup.getAttribute('data-popup') + '"]');
+
+            if (openMember) {
+                openMember.classList.remove('active');
+            }
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape') {
+            return;
+        }
+
+        var activePopup = popups.querySelector('.member-popup.active');
+
+        if (activePopup) {
+            activePopup.classList.remove('active');
+
+            var activeMember = results.querySelector('.member.active');
+
+            if (activeMember) {
+                activeMember.classList.remove('active');
+            }
+        }
+    });
+
     if (nameInput) {
         nameInput.addEventListener('input', onInput);
     }
