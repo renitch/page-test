@@ -1152,6 +1152,73 @@ ul {
   }
 }
 
+.partners {
+  padding: 4rem 0;
+}
+
+.partners__heading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.partners__images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+  .partners__images {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .partners__images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.partners__see-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.partners__see-all-btn {
+  width: auto;
+  padding: 0 1.75rem;
+  border: 0;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+.partners__button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.partner-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 7.5rem;
+}
+
+.partner-image img {
+  max-width: 100%;
+  max-height: 5.5rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.partner-image--overflow {
+  display: none;
+}
+
 .footer {
   position: relative;
   background: #FAAC1B;

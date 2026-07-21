@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Progressive "See all partners" reveal on the Partners block
+  (`partners.php`): the logo grid shows the first 8 logos and a
+  "See all partners" button; each click reveals the next 8 and the button
+  removes itself once every logo is visible. Logos past the first batch are
+  server-collapsed (`.partner-image--overflow`), with a `<noscript>` fallback
+  that shows every logo when JavaScript is off. Supports several partners
+  blocks per page via a `wp_unique_id()` grid id and `aria-controls`.
+- `assets/js/partners-toggle.js` — dependency-free reveal logic scoped per
+  block (batch size from `data-partners-step`); reveals the `hidden` button
+  only when JS is present and moves keyboard focus to the first newly revealed
+  logo when the button is removed.
+- `scss/_partners.scss` (imported in `styles.scss`, recompiled into
+  `css/styles.css`) — responsive 4/3/2-column logo grid, the `--overflow`
+  hide rule, and the centered "See all partners" button reusing the shared
+  `.button` style.
+- `inc/partners-toggle.php` — enqueues the toggle script with `filemtime()`
+  cache-busting. Include it from the theme's `functions.php`.
+
 ### Changed
 - Title underlines rebuilt with pseudo-elements only (`.section-title--tail`
   in `_base.scss`): `::after` draws the interrupted 3px line as two
@@ -31,6 +50,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   mockup instead of running to the card edge.
 
 ### Added
+- `css/gradient.css` — navy overlay gradient reproduced from
+  `images/gradient.jpg` (Photoshop dialog): linear `#1e3160` (the `$navy`
+  token) → transparent at `170.31deg` (converted from Photoshop's -80.31deg),
+  exposed as `--gradient-*` custom properties with `.gradient` and an
+  `in oklab` `.gradient--perceptual` utility.
 - Live AJAX search filter for the Members flexible block
   (`flexible-members.php`): filters the `members` post type by post title
   (Name input) and the ACF field `member_city` (County input), scoped to the
