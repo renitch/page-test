@@ -1,0 +1,191 @@
+/**
+ * Cards view for The Events Calendar.
+ *
+ * Scoped entirely to `.tribe-events-view--cards`, the container class the
+ * custom Cards view adds from its slug, so the stock List / Month / Day views
+ * are never affected. Turns the re-used List markup into a responsive card
+ * grid. Every knob is a custom property — override them in your theme to
+ * restyle the cards without editing this file.
+ */
+
+.tribe-events-view--cards {
+    --tec-cards-min: 300px;
+    --tec-cards-gap: 1.5rem;
+    --tec-cards-radius: 12px;
+    --tec-cards-pad: 1.25rem;
+    --tec-cards-image-ratio: 16 / 9;
+    --tec-cards-bg: #ffffff;
+    --tec-cards-border: #e6e8eb;
+    --tec-cards-fg: #1f2933;
+    --tec-cards-muted: #6b7280;
+    --tec-cards-accent: #1e3160; /* ABMA navy */
+    --tec-cards-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
+    --tec-cards-shadow-hover: 0 10px 24px rgba(15, 23, 42, 0.14);
+}
+
+/* -------------------------------------------------------------------- Grid */
+
+.tribe-events-view--cards .tribe-events-calendar-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--tec-cards-min), 1fr));
+    gap: var(--tec-cards-gap);
+    border: 0;
+}
+
+/* Date-group separators and the mobile date tag don't belong in a grid. */
+.tribe-events-view--cards .tribe-events-calendar-list__month-separator,
+.tribe-events-view--cards .tribe-events-calendar-list__event-date-tag {
+    display: none;
+}
+
+/* -------------------------------------------------------------- Card shell */
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-row {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-row::before,
+.tribe-events-view--cards .tribe-events-calendar-list__event-row::after {
+    content: none;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-featured-image-wrapper,
+.tribe-events-view--cards .tribe-events-calendar-list__event-details {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: var(--tec-cards-fg);
+    background: var(--tec-cards-bg);
+    border: 1px solid var(--tec-cards-border);
+    border-radius: var(--tec-cards-radius);
+    box-shadow: var(--tec-cards-shadow);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event:hover,
+.tribe-events-view--cards .tribe-events-calendar-list__event:focus-within {
+    transform: translateY(-4px);
+    box-shadow: var(--tec-cards-shadow-hover);
+}
+
+/* ------------------------------------------------------------------- Media */
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-featured-image-wrapper {
+    flex: 0 0 auto;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-featured-image-link {
+    display: block;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-featured-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--tec-cards-image-ratio);
+    object-fit: cover;
+}
+
+/* -------------------------------------------------------------------- Body */
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-details {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: var(--tec-cards-pad);
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-datetime-wrapper {
+    margin: 0;
+    font-weight: 600;
+    color: var(--tec-cards-accent);
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-title {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.3;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-title-link {
+    color: inherit;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event:hover .tribe-events-calendar-list__event-title-link {
+    text-decoration: underline;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-description {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    color: var(--tec-cards-muted);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+}
+
+.tribe-events-view--cards .tribe-events-calendar-list__event-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Meta pinned to the bottom so cards of different heights line up. */
+.tribe-events-view--cards .tribe-events-calendar-list__event-venue {
+    margin: auto 0 0;
+    color: var(--tec-cards-muted);
+    font-size: 0.875rem;
+}
+
+/* -------------------------------------------------------- A11y / reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    .tribe-events-view--cards .tribe-events-calendar-list__event {
+        transition: none;
+    }
+
+    .tribe-events-view--cards .tribe-events-calendar-list__event:hover,
+    .tribe-events-view--cards .tribe-events-calendar-list__event:focus-within {
+        transform: none;
+    }
+}
+
+/* ------------------------------------------------------------- Dark scheme */
+
+@media (prefers-color-scheme: dark) {
+    .tribe-events-view--cards {
+        --tec-cards-bg: #1b1f24;
+        --tec-cards-border: #2b3138;
+        --tec-cards-fg: #e6e8eb;
+        --tec-cards-muted: #9aa4b2;
+        --tec-cards-accent: #8fa6e0;
+        --tec-cards-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+        --tec-cards-shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.55);
+    }
+}
+
+/* ------------------------------------------------------------ Small screens */
+
+@media (max-width: 480px) {
+    .tribe-events-view--cards {
+        --tec-cards-min: 100%;
+    }
+}

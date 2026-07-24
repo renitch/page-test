@@ -8,6 +8,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- "Cards" display view for The Events Calendar (Views V2), sitting alongside
+  List / Month / Day in the view selector — a responsive grid of event cards
+  (featured image, date, title, excerpt, venue). Registered through the public
+  `tribe_events_views` filter and rendered by re-using the List template, so it
+  inherits the list's query, pagination and AJAX view-switching while the
+  `tribe-events-view--cards` container class restyles the events as a grid.
+  Self-contained under `cards/`; nothing is added to the plugin folder. Target:
+  The Events Calendar 6.17.1 + Events Calendar Pro 7.8.0.
+- `cards/events-cards-view.php` — registers the view, keeps it enabled in the
+  selector (additive `tribeEnableViews` filter), routes its template to this
+  folder via `tribe_template_file`, and enqueues the grid stylesheet with
+  `filemtime()` cache-busting. Include from the theme's functions.php:
+  `require get_stylesheet_directory() . '/cards/events-cards-view.php';`
+- `cards/class-events-cards-view.php` — `ABMA\Events_Cards_View` extending the
+  stock `List_View` with slug `cards`, made publicly visible in the selector.
+- `cards/templates/cards.php` — one-line root template re-using `v2/list.php`.
+- `cards/assets/cards.css` — grid and card styling scoped to
+  `.tribe-events-view--cards`, with themeable custom properties plus
+  reduced-motion and dark-scheme support.
+- `cards/README.md` — install, activation (enable the view + flush permalinks)
+  and customization notes.
 - Progressive "See all partners" reveal on the Partners block
   (`partners.php`): the logo grid shows the first 8 logos and a
   "See all partners" button; each click reveals the next 8 and the button
